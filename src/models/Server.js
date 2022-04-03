@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const userRouter = require("../routes/user");
 const authRouter = require('../routes/auth')
+const artistRouter = require('../routes/artist')
 const { connectDb } = require("../dbConfig/dbConnection");
 const fileUpload = require('express-fileupload');
 class Server {
@@ -10,7 +11,8 @@ class Server {
     this.port = process.env.APP_PORT;
     this.paths = {
       usersPath: "/",
-      authPath:"/auth"
+      authPath:"/auth",
+      artistPath: "/artist"
     };
     this.conectarDb();
     this.app.use(cors());
@@ -26,7 +28,9 @@ class Server {
   }
   routes() {
     this.app.use(this.paths.usersPath, userRouter);
-    this.app.use(this.paths.authPath,authRouter)
+    this.app.use(this.paths.authPath, authRouter);
+    this.app.use(this.paths.artistPath, artistRouter);
+
   }
   listen(){
       this.app.listen(this.port)

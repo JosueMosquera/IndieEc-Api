@@ -14,17 +14,17 @@ router.get('/artists',async(req,res)=>{
 })
 router.post('/artists',async(req,res)=>{
     try {
-        const {user_name,password,song_date,rols} = req.body
+        const {user_name,song_date,password} = req.body
          dataSource.getRepository(Artist).create(req.body)
-        bcrypt.hash(password,saltRounds,async(err,hash)=>{
+        
             const results = await dataSource.getRepository(Artist).save({        
             user_name,
             song_date,
-            rols:[rols],
-            password:hash,
+            password,
+
         })
         return res.json(results)
-    })
+    
 
     } catch (error) {
         console.log(error)

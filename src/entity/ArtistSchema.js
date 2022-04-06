@@ -16,6 +16,10 @@ module.exports = new EntitySchema( {
         },
         song_date:{
             type:"date",
+        },
+        
+        password:{
+            type:"varchar",
         }
 
     }

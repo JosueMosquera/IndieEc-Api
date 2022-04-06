@@ -12,7 +12,7 @@ class Server {
     this.paths = {
       usersPath: "/",
       authPath:"/auth",
-      artistPath: "/artist"
+      artistPath: "/"
     };
     this.conectarDb();
     this.app.use(cors());

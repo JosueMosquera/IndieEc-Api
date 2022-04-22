@@ -14,13 +14,17 @@ router.get('/artists',async(req,res)=>{
 })
 router.post('/artists',async(req,res)=>{
     try {
-        const {user_name,song_date,password} = req.body
+        const {name,last_name,artist_name,gender_music, birth_place,description} = req.body
          dataSource.getRepository(Artist).create(req.body)
         
             const results = await dataSource.getRepository(Artist).save({        
-            user_name,
-            song_date,
-            password,
+            name,
+            last_name,
+            artist_name,
+            gender_music,
+            birth_place,
+            description,
+            
 
         })
         return res.json(results)

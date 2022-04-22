@@ -1,9 +1,14 @@
 class Artist{
-    contructor(id,user_name,song_date,password){
+    contructor(id,name,last_name,artist_name,birth_place,description){
         this.id = id,
-        this.user_name = user_name,
-        this.song_date = song_date,
-        this.password = password
+        this.name = name,
+        this.last_name = last_name,
+        this.artist_name = artist_name,
+        this.birth_place = birth_place,
+        this.description = description
+        
+
+
     }
 }
 module.exports={

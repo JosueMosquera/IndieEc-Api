@@ -4,6 +4,12 @@ const User = require('../models/User').User
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const router = express.Router()
+router.get('/',(req,res)=>{
+    res.render('home')
+})
+router.get('/users/register',(req,res)=>{
+    res.render('usersRegister')
+})
 router.get('/users',async(req,res)=>{
     try {
         const users = await dataSource.getRepository(User).find()
@@ -20,10 +26,10 @@ router.post('/users',async(req,res)=>{
             const results = await dataSource.getRepository(User).save({        
             username,
             email,
-            rols:[rols],
+            rols,
             password:hash,
         })
-        return res.json(results)
+        return res.json({msg:'usuario creado',usuario:results})
     })
 
     } catch (error) {

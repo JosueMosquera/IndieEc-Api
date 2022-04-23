@@ -11,6 +11,17 @@ module.exports = new  EntitySchema( {
             type:'int',
             generated:true
         },
+        email:{
+            type:"varchar",
+            unique:true 
+        },
+        username:{
+            type:'varchar',
+            unique:true
+        },
+        password:{
+            type:'varchar'
+        },      
         name:{
             type:"varchar",
         },

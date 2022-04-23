@@ -3,6 +3,8 @@ const cors = require("cors");
 const userRouter = require("../routes/user");
 const authRouter = require('../routes/auth')
 const { connectDb } = require("../dbConfig/dbConnection");
+const {engine} = require('express-handlebars')
+
 const fileUpload = require('express-fileupload');
 class Server {
   constructor() {
@@ -14,6 +16,8 @@ class Server {
     };
     this.conectarDb();
     this.app.use(cors());
+    this.app.engine('handlebars',engine())
+    this.app.set('view engine','handlebars')
    /*  this.app.set('view engine','ejs') */
     //Parseo y lectura del body
     this.app.use(express.json());

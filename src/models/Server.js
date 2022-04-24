@@ -3,8 +3,13 @@ const cors = require("cors");
 const userRouter = require("../routes/user");
 const authRouter = require('../routes/auth')
 const artistRouter = require('../routes/artist')
-const { connectDb } = require("../dbConfig/dbConnection");
-const {engine} = require('express-handlebars')
+const artistAuthRouter = require('../routes/artistAuth')
+const {
+  connectDb
+} = require("../dbConfig/dbConnection");
+const {
+  engine
+} = require('express-handlebars')
 
 const fileUpload = require('express-fileupload');
 class Server {
@@ -13,14 +18,15 @@ class Server {
     this.port = process.env.APP_PORT;
     this.paths = {
       usersPath: "/",
-      authPath:"/auth",
-      artistPath: "/"
+      authPath: "/auth",
+      artistPath: "/",
+      artistAuthPath: '/auth'
     };
     this.conectarDb();
     this.app.use(cors());
-    this.app.engine('handlebars',engine())
-    this.app.set('view engine','handlebars')
-   /*  this.app.set('view engine','ejs') */
+    this.app.engine('handlebars', engine())
+    this.app.set('view engine', 'handlebars')
+    /*  this.app.set('view engine','ejs') */
     //Parseo y lectura del body
     this.app.use(express.json());
     this.middlewares();
@@ -34,18 +40,18 @@ class Server {
     this.app.use(this.paths.usersPath, userRouter);
     this.app.use(this.paths.authPath, authRouter);
     this.app.use(this.paths.artistPath, artistRouter);
-
+    this.app.use(this.paths.artistAuthPath, artistAuthRouter)
   }
-  listen(){
-      this.app.listen(this.port)
+  listen() {
+    this.app.listen(this.port)
   }
-  middlewares(){
-      this.app.use(express.static("public"));
-      this.app.use(fileUpload({
-        useTempFiles:true,
-        tempFileDir:"/tmp/",
-        createParentPath:true
-      }))
+  middlewares() {
+    this.app.use(express.static("public"));
+    this.app.use(fileUpload({
+      useTempFiles: true,
+      tempFileDir: "/tmp/",
+      createParentPath: true
+    }))
   }
 }
-module.exports=Server;
+module.exports = Server;

@@ -7,9 +7,7 @@ const router = express.Router()
 router.get('/',(req,res)=>{
     res.render('home')
 })
-router.get('/users/register',(req,res)=>{
-    res.render('usersRegister')
-})
+
 router.get('/users',async(req,res)=>{
     try {
         const users = await dataSource.getRepository(User).find()

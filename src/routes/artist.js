@@ -6,6 +6,9 @@ const Artist = require('../models/Artist').Artist
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const router = express.Router()
+router.get('/artists/register',(req,res)=>{
+    res.render('artistsRegister')
+})
 router.get('/artists', async (req, res) => {
     try {
         const artists = await dataSource.getRepository(Artist).find()
@@ -42,7 +45,7 @@ router.post('/artists', async (req, res) => {
 
 
             })
-            return res.json(results)
+            return res.render('thanksForRegister')
         })
     } catch (error) {
         console.log(error)

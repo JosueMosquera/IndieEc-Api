@@ -1,0 +1,388 @@
+ body{
+     background-color: rgb(0, 0, 0);
+ }
+#contenido{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    max-width:100% ;
+    max-height: 100%;
+}
+
+#img{
+    position: absolute;
+    top: -100%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    max-width:30% ;
+    max-height: 50%;
+}
+
+#img img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#girasol{
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    
+    
+}
+#fondo{
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    max-width:60% ;
+    max-height: 50%;
+    background-color: rgba(194, 192, 189, 0.363);
+
+}
+#titulo{
+    position: absolute;
+    top: -100%;
+    left: 16%;
+    font-size: 95px;
+
+}
+#retangulo_vertical{
+    position: absolute;
+    top: -100%;
+    left: 65%;
+     width: 150%; 
+     height: 100%; 
+     max-width:28% ;
+     max-height: 100%;
+     background: #f3b407;
+     }
+ #descripcion{
+      position:absolute;
+      top: -100%;
+      left: 67%;
+      font-size: 50px;
+
+ }
+ #biografia_del_artista {
+    position:absolute ;
+    top: -80%;
+    left: 67%;
+    font-size:15px;
+    width: 100%;
+    height: auto;
+    max-width:32% ;
+    max-height: auto;
+ }
+ #biografia_del_artista p{
+    width: 70%;
+    height:auto;
+    text-align: justify;
+ }
+
+ #video{
+    position: absolute;
+    top: -45%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    max-width:50% ;
+    max-height: 10%;
+ }
+ #descripciondecancion{
+     position:absolute;
+     top: -45%;
+     left: 30%;
+ }
+ #cancion{
+    position:absolute ;
+    top: -40%;
+    left: 28%;
+    font-size:15px;
+    width: 100%;
+    height: auto;
+    max-width:32% ;
+    max-height: auto;
+}
+  #cancion p{
+    width: 90%;
+    height:auto;
+    text-align: justify;
+    
+  }
+
+  #letradelacancion{
+    position:absolute ;
+    top: -15%;
+    left: 5%;
+    font-size:15px;
+    width: 100%;
+    height: auto;
+    max-width:32% ;
+    max-height: auto;
+}
+#letradelacancion P{
+    width: 25%;
+    height:auto;
+    text-align:center;
+}
+
+  #contactos{
+      position: absolute;
+      bottom: -10%;
+      width: 100%;
+    height: 100%;
+    max-width:100% ;
+    max-height: 10%;
+   
+  }
+   #facebook{
+    position: absolute;
+    top: 0%;
+    left: 20%; 
+   
+   }
+   #facebook img{
+    width: 75%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+   
+#instagram{
+    position: absolute;
+    top: 0%;
+    left: 30%;
+   }
+   #instagram img{
+    width: 76%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#tiktok{
+    position: absolute;
+    top: 0%;
+    left: 40%;
+   }
+   #tiktok img{
+    width: 75%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#Spotify{
+    position: absolute;
+    top: 0%;
+    left: 10%;
+   }
+   #Spotify img{
+    width: 75%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#letra{
+    position:absolute ;
+    top: -8%;
+    left: 2%;
+    font-size:15px;
+    width: 100%;
+    height: auto;
+    max-width:32% ;
+    max-height: auto;
+}
+#letra p {
+    width: 45%;
+    height:auto;
+    text-align:center;
+}
+#rectangulo_vertical2{
+    position: absolute;
+    top: -100%;
+    left: 95%;
+     width: 100%; 
+     height: 100%; 
+     max-width:5% ;
+     max-height: 100%;
+     background: #6b1b3a;
+}
+#rectangulo3{
+    position: absolute;
+    top: -15%;
+    left: 42%;
+     width: 150%; 
+     height: 35%; 
+     max-width:25% ;
+     max-height: 100%;
+     background: #0a4d31;
+}
+#rectangulo4{
+    position: absolute;
+    top: 10%;
+    left: 65%;
+     width: 150%; 
+     height: 35%; 
+     max-width:28% ;
+     max-height: 100%;
+     background: #ac8315;
+}
+#rectangulo5{
+    position: absolute;
+    top: 35%;
+    left: 42%;
+     width: 150%; 
+     height: 35%; 
+     max-width:25% ;
+     max-height: 100%;
+     background: #8d234c;
+ 
+}
+#rectangulo6{
+    position: absolute;
+    top: 10%;
+    left: 18%;
+     width: 150%; 
+     height: 25%; 
+     max-width:25% ;
+     max-height: 100%;
+     background: #b4648f;
+}
+#cosasdemannie{
+    position:absolute ;
+    top: 11%;
+    left: 23%;
+    font-size:20px;
+    width: 100%;
+    height: auto;
+    max-width:32% ;
+    max-height: auto;
+}
+#cosasdemannie p{
+    width: 45%;
+    height:auto;
+    text-align:center;
+}
+#poema1{
+    position: absolute;
+    top: -12%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width:40% ;
+    max-height: 90%;
+}
+#poema1 img{
+    width: 35%;
+    height: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#fotografia{
+    position: absolute;
+    top: 12%;
+    left: 67%;
+    width: 100%;
+    height: 100%;
+    max-width:40% ;
+    max-height: 90%;
+
+}
+#fotografia img{
+    width: 35%;
+    height: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#fotografia2{
+    position: absolute;
+    top: 62%;
+    left: 70%;
+    width: 100%;
+    height: 100%;
+    max-width:40% ;
+    max-height: 90%;
+}
+#fotografia2 img {
+    width: 35%;
+    height: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#libros{
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width:40% ;
+    max-height: 90%;
+}
+#libros img{
+    width: 35%;
+    height: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#rectangulo7{
+    position: absolute;
+    top: 60%;
+    left: 65%;
+     width: 150%; 
+     height: 35%; 
+     max-width:25% ;
+     max-height: 100%;
+     background: #6a3179;
+     }
+     #letrasdecuadroceleste{
+        position:absolute ;
+        top: -17%;
+        left: 45%;
+        font-size:15px;
+        width: 100%;
+        height: auto;
+        max-width:32% ;
+        max-height: auto;
+     }
+     #letrasdecuadradoceleste p {
+        width: 35%;
+        height:auto;
+        text-align:center;
+    }
+    #letrasdecuadroceleste2{
+        position:absolute ;
+        top: 35%;
+        left: 45%;
+        font-size:15px;
+        width: 100%;
+        height: auto;
+        max-width:32% ;
+        max-height: auto;
+     }
+     #letrasdecuadradoceleste2 p {
+        width: 35%;
+        height:auto;
+        text-align:center;
+    }
+    #letrasdecuadroceleste3{
+        position:absolute ;
+        top: 10%;
+        left: 85%;
+        font-size:15px;
+        width: 100%;
+        height: auto;
+        max-width:32% ;
+        max-height: auto;
+     }
+     #letrasdecuadradoceleste3 p {
+        width: 35%;
+        height:auto;
+        text-align:center;
+    }
+    
+    
+    

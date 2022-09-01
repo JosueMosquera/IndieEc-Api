@@ -3,6 +3,7 @@ const cors = require("cors");
 const userRouter = require("../routes/user");
 const authRouter = require('../routes/auth')
 const artistRouter = require('../routes/artist')
+const artistCatalogueRouter = require('../routes/artistCatalogue')
 const artistAuthRouter = require('../routes/artistAuth')
 const {
   connectDb
@@ -20,7 +21,8 @@ class Server {
       usersPath: "/",
       authPath: "/auth",
       artistPath: "/",
-      artistAuthPath: '/auth'
+      artistAuthPath: '/auth',
+      artistCataloguePath: '/'
     };
     this.conectarDb();
     this.app.use(cors());
@@ -41,6 +43,7 @@ class Server {
     this.app.use(this.paths.authPath, authRouter);
     this.app.use(this.paths.artistPath, artistRouter);
     this.app.use(this.paths.artistAuthPath, artistAuthRouter)
+    this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter)
   }
   listen() {
     this.app.listen(this.port)

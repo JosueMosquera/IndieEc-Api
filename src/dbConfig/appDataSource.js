@@ -8,11 +8,12 @@ const dataSource = new typeorm.DataSource({
     port: 3306,
     username: process.env.DATABASEUSER,
     database: process.env.DATABASENAME,
+    password: process.env.DATABASEPASS,
     synchronize: true,
-    logging:false,
-    entities:[require('../entity/UserSchema'),require('../entity/RoleSchema'),require('../entity/ArtistSchema')]
+    logging: true,
+    entities: [require('../entity/UserSchema'), require('../entity/RoleSchema'), require('../entity/ArtistSchema'), require('../entity/ArtistCatalogueSchema')]
 })
 dataSource.initialize()
-module.exports={
-     dataSource
-}
+module.exports = {
+    dataSource
+} 

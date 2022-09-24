@@ -3,8 +3,9 @@ const cors = require("cors");
 const userRouter = require("../routes/user");
 const authRouter = require('../routes/auth')
 const artistRouter = require('../routes/artist')
-const artistCatalogueRouter = require('../routes/artistCatalogue')
 const artistAuthRouter = require('../routes/artistAuth')
+const productsRouter = require('../routes/product')
+const artistCatalogueRouter = require('../routes/artistCatalogue')
 const {
   connectDb
 } = require("../dbConfig/dbConnection");
@@ -13,6 +14,7 @@ const {
 } = require('express-handlebars')
 
 const fileUpload = require('express-fileupload');
+
 class Server {
   constructor() {
     this.app = express();
@@ -21,8 +23,9 @@ class Server {
       usersPath: "/",
       authPath: "/auth",
       artistPath: "/",
-      artistAuthPath: '/auth',
-      artistCataloguePath: '/'
+      artistAuthPath: "/auth",
+      artistCataloguePath : "/",
+      productsPath: "/",
     };
     this.conectarDb();
     this.app.use(cors());
@@ -42,8 +45,9 @@ class Server {
     this.app.use(this.paths.usersPath, userRouter);
     this.app.use(this.paths.authPath, authRouter);
     this.app.use(this.paths.artistPath, artistRouter);
-    this.app.use(this.paths.artistAuthPath, artistAuthRouter)
-    this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter)
+    this.app.use(this.paths.artistAuthPath, artistAuthRouter);
+    this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter);
+    this.app.use(this.paths.productsPath, productsRouter);
   }
   listen() {
     this.app.listen(this.port)

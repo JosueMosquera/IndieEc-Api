@@ -10,10 +10,10 @@ const dataSource = new typeorm.DataSource({
     database: process.env.DATABASENAME,
     password: process.env.DATABASEPASS,
     synchronize: true,
-    logging: true,
-    entities: [require('../entity/UserSchema'), require('../entity/RoleSchema'), require('../entity/ArtistSchema'), require('../entity/ArtistCatalogueSchema')]
+    logging:true,
+    entities:[require('../entity/UserSchema'),require('../entity/RoleSchema'),require('../entity/ArtistSchema'), require('../entity/ProductSchema'), require('../entity/ArtistCatalogueSchema')]
 })
 dataSource.initialize()
-module.exports = {
-    dataSource
-} 
+module.exports={
+     dataSource
+}

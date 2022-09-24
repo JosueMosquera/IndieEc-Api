@@ -4,34 +4,35 @@ const User = require('../models/User').User
 
 const EntitySchema = require('typeorm').EntitySchema
 
-module.exports = new EntitySchema({
-    name: "User",
-    tableName: "users",
-    target: User,
-    columns: {
-        id: {
-            primary: true,
-            type: 'int',
-            generated: true
+module.exports = new EntitySchema( {
+    name:"User",
+    tableName:"users",
+    target:User,
+    columns:{
+        id:{
+            primary:true,
+            type:'int',
+            generated:true
         },
-        username: {
-            type: "varchar",
-            unique: true
+        username:{
+            type:"varchar",
+            unique:true
         },
-        email: {
-            type: "varchar",
-            unique: true
-
+        email:{
+            type:"varchar",
+            unique:true
+            
         },
-        password: {
-            type: "varchar"
+        password:{
+            type:"varchar"
         }
     },
-    relations: {
-        rols: {
-            target: "Role",
-            type: "many-to-many",
-            cascade: true
+    relations:{
+        rols:{
+            target:"Role",
+            type:"many-to-many",
+            joinTable:true,
+            cascade:true
         }
     }
 })

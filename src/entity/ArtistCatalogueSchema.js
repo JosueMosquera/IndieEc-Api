@@ -16,7 +16,6 @@ module.exports = new EntitySchema({
             type: 'int'
         }
     },
-    //TODO: relation to artist fk
     relations: {
         artist: {
             target: "Artist",

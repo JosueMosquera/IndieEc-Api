@@ -1,27 +1,27 @@
-const ArtistCatalogue = require('../models/ArtistCatalogue').ArtistCatalogue
+const ArtistCatalogue = require("../models/ArtistCatalogue").ArtistCatalogue;
 
-const EntitySchema = require('typeorm').EntitySchema
+const EntitySchema = require("typeorm").EntitySchema;
 
 module.exports = new EntitySchema({
-    name: "Artist_Catalogue",
-    tableName: 'Artist_Catalogue',
-    target: ArtistCatalogue,
-    columns: {
-        id: {
-            primary: true,
-            type: 'int',
-            generated: true
-        },
-        artistId: {
-            type: 'int'
-        }
+  name: "artist_catalogue",
+  tableName: "artist_catalogue",
+  target: ArtistCatalogue,
+  columns: {
+    id: {
+      primary: true,
+      type: "int",
+      generated: true,
     },
-    relations: {
-        artist: {
-            target: "Artist",
-            type: 'one-to-one',
-            joinColumn: true,
-            cascade: true,
-        }
-    }
-})
+    artistId: {
+      type: "int",
+    },
+  },
+  relations: {
+    artist: {
+      target: "Artist",
+      type: "one-to-one",
+      joinColumn: true,
+      cascade: true,
+    },
+  },
+});

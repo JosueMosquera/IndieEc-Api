@@ -40,13 +40,19 @@ router.get("/cart/add/:id", async (req, res) => {
   }
 });
 
-router.get("/cart/pucharse", async (req, res) => {
+router.get("/cart/pucharse-config", async (req, res) => {
+  res.render("e-commerce/paymentConfig");
+});
+router.post("/cart/finish-sell", async (req, res) => {
+  const { address } = req.body;
   if (productsCart.catalogueItems.length > 0) {
     for (const item of productsCart.catalogueItems) {
       await dataSource.getRepository(Request).save({
         total: item.price,
         created_At: new Date(),
         productId: item.id,
+        address,
+        paymentMethod: "efectivo-contra entrega",
         userId: 1,
       });
     }

@@ -18,6 +18,9 @@ module.exports = new EntitySchema({
     created_At: {
       type: "date",
     },
+    address: {
+      type: "varchar",
+    },
     productId: {
       type: "int",
     },

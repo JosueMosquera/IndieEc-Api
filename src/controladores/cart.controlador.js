@@ -3,12 +3,13 @@ const router = express.Router();
 const { dataSource } = require("../dbConfig/appDataSource");
 const Request = require("../models/Request").Request;
 const Product = require("../models/Product").Product;
+const cartCtl = {};
 const productsCart = {
   catalogueItems: [],
   total: 0,
 };
 
-router.get("/cart/add/:id", async (req, res) => {
+cartCtl.addToCart = async (req, res) => {
   const productId = req.params.id;
   try {
     const product = await dataSource
@@ -38,12 +39,13 @@ router.get("/cart/add/:id", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
-});
+};
 
-router.get("/cart/pucharse-config", async (req, res) => {
+cartCtl.pucharseConfig = async (req, res) => {
   res.render("e-commerce/paymentConfig");
-});
-router.post("/cart/finish-sell", async (req, res) => {
+};
+
+cartCtl.finishSell = async (req, res) => {
   const { address } = req.body;
   if (productsCart.catalogueItems.length > 0) {
     for (const item of productsCart.catalogueItems) {
@@ -58,6 +60,6 @@ router.post("/cart/finish-sell", async (req, res) => {
     }
     res.render("e-commerce/thanksForYourOrder");
   }
-});
+};
 
-module.exports = router;
+module.exports = cartCtl;

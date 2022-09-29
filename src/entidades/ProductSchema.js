@@ -1,4 +1,4 @@
-const Product = require("../models/Product").Product;
+const Product = require("../modelos/Product").Product;
 
 const EntitySchema = require("typeorm").EntitySchema;
 

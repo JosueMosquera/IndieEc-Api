@@ -10,12 +10,12 @@ const dataSource = new typeorm.DataSource({
   synchronize: true,
   logging: true,
   entities: [
-    require("../entity/UserSchema"),
-    require("../entity/RoleSchema"),
-    require("../entity/ArtistSchema"),
-    require("../entity/ProductSchema"),
-    require("../entity/ArtistCatalogueSchema"),
-    require("../entity/RequestSchema"),
+    require("../entidades/UserSchema"),
+    require("../entidades/RoleSchema"),
+    require("../entidades/ArtistSchema"),
+    require("../entidades/ProductSchema"),
+    require("../entidades/ArtistCatalogueSchema"),
+    require("../entidades/RequestSchema"),
   ],
 });
 dataSource.initialize();

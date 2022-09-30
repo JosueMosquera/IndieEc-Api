@@ -1,19 +1,16 @@
 const express = require("express");
 const cors = require("cors");
-const userRouter = require("../routes/user");
-const authRouter = require('../routes/auth')
-const artistRouter = require('../routes/artist')
-const artistAuthRouter = require('../routes/artistAuth')
-const productsRouter = require('../routes/product')
-const artistCatalogueRouter = require('../routes/artistCatalogue')
-const {
-  connectDb
-} = require("../dbConfig/dbConnection");
-const {
-  engine
-} = require('express-handlebars')
+const userRouter = require("../Rutas/user.rutas");
+const authRouter = require("../Rutas/auth.rutas");
+const artistRouter = require("../Rutas/artist.rutas");
+const artistAuthRouter = require("../Rutas/artistAuth.rutas");
+const productsRouter = require("../Rutas/product.rutas");
+const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
+const cartRouter = require("../Rutas/artistCatalogue.rutas");
+const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
+const { engine } = require("express-handlebars");
 
-const fileUpload = require('express-fileupload');
+const fileUpload = require("express-fileupload");
 
 class Server {
   constructor() {
@@ -24,13 +21,15 @@ class Server {
       authPath: "/auth",
       artistPath: "/",
       artistAuthPath: "/auth",
-      artistCataloguePath : "/",
+      artistCataloguePath: "/",
       productsPath: "/",
+      cartPath: "/",
     };
     this.conectarDb();
     this.app.use(cors());
-    this.app.engine('handlebars', engine())
-    this.app.set('view engine', 'handlebars')
+    this.app.engine("handlebars", engine());
+    this.app.set("view engine", "handlebars");
+    this.app.set("views", "src/vistas");
     /*  this.app.set('view engine','ejs') */
     //Parseo y lectura del body
     this.app.use(express.json());
@@ -48,17 +47,20 @@ class Server {
     this.app.use(this.paths.artistAuthPath, artistAuthRouter);
     this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter);
     this.app.use(this.paths.productsPath, productsRouter);
+    this.app.use(this.paths.cartPath, cartRouter);
   }
   listen() {
-    this.app.listen(this.port)
+    this.app.listen(this.port);
   }
   middlewares() {
     this.app.use(express.static("public"));
-    this.app.use(fileUpload({
-      useTempFiles: true,
-      tempFileDir: "/tmp/",
-      createParentPath: true
-    }))
+    this.app.use(
+      fileUpload({
+        useTempFiles: true,
+        tempFileDir: "/tmp/",
+        createParentPath: true,
+      })
+    );
   }
 }
 module.exports = Server;

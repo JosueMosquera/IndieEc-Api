@@ -1,5 +1,5 @@
-const { dataSource } = require("../dbConfig/appDataSource");
-const Artist = require("../models/Artist").Artist;
+const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
+const Artist = require("../modelos/Artist").Artist;
 const bcrypt = require("bcrypt");
 const artistaCtl = {};
 const saltRounds = 10;

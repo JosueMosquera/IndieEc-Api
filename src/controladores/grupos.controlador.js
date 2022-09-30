@@ -1,4 +1,4 @@
-const { dataSource } = require("../dbConfig/appDataSource");
+const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const Group = require("../models/Group").Group;
 const groupsCtl = {};
 

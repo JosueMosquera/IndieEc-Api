@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { dataSource } = require("../dbConfig/appDataSource");
-const Request = require("../models/Request").Request;
-const Product = require("../models/Product").Product;
+const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
+const Request = require("../modelos/Request").Request;
+const Product = require("../modelos/Product").Product;
 const cartCtl = {};
 const productsCart = {
   catalogueItems: [],

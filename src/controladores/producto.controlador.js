@@ -1,6 +1,6 @@
 const express = require("express");
-const { dataSource } = require("../dbConfig/appDataSource");
-const Product = require("../models/Product").Product;
+const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
+const Product = require("../modelos/Product").Product;
 const router = express.Router();
 const productCtl = {};
 productCtl.findAll = async (req, res) => {

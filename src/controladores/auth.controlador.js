@@ -1,5 +1,5 @@
-const { dataSource } = require("../dbConfig/appDataSource");
-const User = require("../models/User").User;
+const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
+const User = require("../modelos/User").User;
 const bcrypt = require("bcrypt");
 const authCtl = {};
 authCtl.loggin = async (req, res) => {

@@ -1,6 +1,6 @@
 const express = require("express");
-const { dataSource } = require("../dbConfig/appDataSource");
-const ArtistCatalogue = require("../models/ArtistCatalogue").ArtistCatalogue;
+const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
+const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 artistCatalogueCtl.mostarCatalogo = async (req, res) => {

@@ -6,7 +6,7 @@ const artistRouter = require("../Rutas/artist.rutas");
 const artistAuthRouter = require("../Rutas/artistAuth.rutas");
 const productsRouter = require("../Rutas/product.rutas");
 const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
-const cartRouter = require("../Rutas/artistCatalogue.rutas");
+const cartRouter = require("../Rutas/cart.rutas");
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 

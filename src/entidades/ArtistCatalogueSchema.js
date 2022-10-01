@@ -1,4 +1,4 @@
-const ArtistCatalogue = require("../models/ArtistCatalogue").ArtistCatalogue;
+const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 
 const EntitySchema = require("typeorm").EntitySchema;
 

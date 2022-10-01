@@ -1,13 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const userRouter = require("../routes/user");
-const authRouter = require("../routes/auth");
-const artistRouter = require("../routes/artist");
-const artistAuthRouter = require("../routes/artistAuth");
-const productsRouter = require("../routes/product");
-const artistCatalogueRouter = require("../routes/artistCatalogue");
-const cartRouter = require("../routes/cart");
-const { connectDb } = require("../dbConfig/dbConnection");
+const userRouter = require("../Rutas/user.rutas");
+const authRouter = require("../Rutas/auth.rutas");
+const artistRouter = require("../Rutas/artist.rutas");
+const artistAuthRouter = require("../Rutas/artistAuth.rutas");
+const productsRouter = require("../Rutas/product.rutas");
+const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
+const cartRouter = require("../Rutas/cart.rutas");
+const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
 const fileUpload = require("express-fileupload");
@@ -29,6 +29,7 @@ class Server {
     this.app.use(cors());
     this.app.engine("handlebars", engine());
     this.app.set("view engine", "handlebars");
+    this.app.set("views", "src/vistas");
     /*  this.app.set('view engine','ejs') */
     //Parseo y lectura del body
     this.app.use(express.json());

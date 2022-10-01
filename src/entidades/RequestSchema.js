@@ -1,4 +1,4 @@
-const Request = require("../models/Request").Request;
+const Request = require("../modelos/Request").Request;
 
 const EntitySchema = require("typeorm").EntitySchema;
 

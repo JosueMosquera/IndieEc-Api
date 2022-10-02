@@ -3,6 +3,8 @@ const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const Product = require("../modelos/Product").Product;
 const router = express.Router();
 const productCtl = {};
+
+
 productCtl.findAll = async (req, res) => {
   try {
     const products = await dataSource.getRepository(Product).find();

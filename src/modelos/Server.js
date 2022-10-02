@@ -5,6 +5,7 @@ const authRouter = require("../Rutas/auth.rutas");
 const artistRouter = require("../Rutas/artist.rutas");
 const artistAuthRouter = require("../Rutas/artistAuth.rutas");
 const productsRouter = require("../Rutas/product.rutas");
+const artistMusicRouter = require("../Rutas/artistMusic.rutas");
 const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
 const cartRouter = require("../Rutas/cart.rutas");
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
@@ -23,6 +24,7 @@ class Server {
       artistAuthPath: "/auth",
       artistCataloguePath: "/",
       productsPath: "/",
+      artistMusicPath:"/",
       cartPath: "/",
     };
     this.conectarDb();
@@ -46,6 +48,8 @@ class Server {
     this.app.use(this.paths.artistPath, artistRouter);
     this.app.use(this.paths.artistAuthPath, artistAuthRouter);
     this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter);
+    this.app.use(this.paths.artistMusicPath, artistMusicRouter);
+
     this.app.use(this.paths.productsPath, productsRouter);
     this.app.use(this.paths.cartPath, cartRouter);
   }

@@ -8,6 +8,10 @@ artistaCtl.renderArtistRegisterView = async (req, res) => {
   res.render("artistsRegister");
 };
 
+artistaCtl.renderHome = (req, res) => {
+  res.render("home");
+};
+
 artistaCtl.mostrarArtistas = async (req, res) => {
   try {
     const artists = await dataSource.getRepository(Artist).find();

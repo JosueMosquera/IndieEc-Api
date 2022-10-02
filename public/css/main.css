@@ -1,13 +1,26 @@
-body {
+    body {
     background-color: rgb(84, 94, 104);
+    margin: 0;
 }
 
-.container {
+#container {
     display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+#title{
+    font-size: 20px;
+}
+#form-control{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 h4 {
@@ -15,12 +28,9 @@ h4 {
     color: rgb(235, 235, 235);
 }
 
-.navbar {
-    background-color: rgb(14, 80, 90);
-}
 
 @media screen and (max-width:768px) {
-    .container {
+    #container {
         grid-template-columns: 1fr;
     }
 }

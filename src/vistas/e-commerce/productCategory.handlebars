@@ -12,85 +12,85 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
+    <nav id="navbar navbar-expand-lg navbar-dark">
+        <div id="container-fluid">
             <img src="https://indieec.github.io/assets/logops.png" alt=""
                 style="height: 70px ; width: 70px; margin-top: 5px;">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="https://indieec.github.io/"
+            <ul id="navbar-nav me-auto mb-2 mb-lg-0">
+                <li id="nav-item">
+                    <a id="nav-link active" aria-current="page" href="https://indieec.github.io/"
                         style="font-size: 1.1rem; font-weight: 500; margin-left: 15px;">Home</a>
             </ul>
             <a href="">
-                <i class="bi bi-cart" style="font-size: 1.7rem; color: white; margin-right:20px;"></i>
+                <i id="bi bi-cart" style="font-size: 1.7rem; color: white; margin-right:20px;"></i>
             </a>
         </div>
     </nav>
     
-    <div class=" wrap">
+    <div id=" wrap">
         <h1>Escoge un producto</h1>
-        <div class="store-wrapper">
-            <div class="category_list">
-                <a href="#" class="category_item" category="all">Todos los Productos</a>
-                <a href="#" class="category_item" category="mochila">mochilas</a>
-                <a href="#" class="category_item" category="sueter">sueters</a>
-                <a href="#" class="category_item" category="camiseta">camisetas</a>  
-                <a href="#" class="category_item" category="gorra">gorras</a>         
+        <div id="store-wrapper">
+            <div id="category_list">
+                <div id="category_item" category="all">Todos los Productos</a>
+                <div id="category_item" category="mochila">mochilas</a>
+                <div id="category_item" category="sueter">sueters</a>
+                <div id="category_item" category="camiseta">camisetas</a>  
+                <div id="category_item" category="gorra">gorras</a>         
 
             </div>
-            <section class="product-list">
-                <div class="product-item" category="gorra">
-                <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1560774358-d727658f457c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" class="card-img-top" alt="product-image">
-                <div class="card-body">
-                   <h5 class="card-title">{{name}}</h5>
-                   <p class="card-text">Codigo: {{code}}</p>
-                   <p class="card-text">Descripcion del producto: {{description}}</p>
-                   <p class="card-text">Precio: {{price}}$</p>
-                   <p class="card-text">Stock: {{stock}}</p>
-                   <a href="/views/e-commerce/productCategory.handlebars" class="btn btn-primary">Agregar al carrito</a>
+            <section id="product-list">
+                <div id="product-item" category="gorra">
+                <div id="card" style="width: 18rem;">
+                <img src="https://images.unsplash.com/photo-1560774358-d727658f457c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" id="card-img-top" alt="product-image">
+                <div id="card-body">
+                   <h5 id="card-title">{{name}}</h5>
+                   <p id="card-text">Codigo: {{code}}</p>
+                   <p id="card-text">Descripcion del producto: {{description}}</p>
+                   <p id="card-text">Precio: {{price}}$</p>
+                   <p id="card-text">Stock: {{stock}}</p>
+                   <a href="/views/e-commerce/productCategory.handlebars" id="btn btn-primary">Agregar al carrito</a>
                  </div>
                 </div>
             </div>
 
-            <div class="product-item" category="mochila">
-                <div class="card" style="width: 18rem;">
-                <img src="https://cdnx.jumpseller.com/fatcap/image/6820630/resize/1200/1200?1601947462" class="card-img-top" alt="product-image">
-                <div class="card-body">
-                   <h5 class="card-title">{{name}}</h5>
-                   <p class="card-text">Codigo: {{code}}</p>
-                   <p class="card-text">Descripcion del producto: {{description}}</p>
-                   <p class="card-text">Precio: {{price}}$</p>
-                   <p class="card-text">Stock: {{stock}}</p>
-                   <a href="/products/{{id}}" class="btn btn-primary">ver detalles</a>
+            <div id="product-item" category="mochila">
+                <div id="card" style="width: 18rem;">
+                <img src="https://cdnx.jumpseller.com/fatcap/image/6820630/resize/1200/1200?1601947462" id="card-img-top" alt="product-image">
+                <div id="card-body">
+                   <h5 id="card-title">{{name}}</h5>
+                   <p id="card-text">Codigo: {{code}}</p>
+                   <p id="card-text">Descripcion del producto: {{description}}</p>
+                   <p id="card-text">Precio: {{price}}$</p>
+                   <p id="card-text">Stock: {{stock}}</p>
+                   <a href="/products/{{id}}" id="btn btn-primary">ver detalles</a>
                  </div>
                 </div>
             </div>
 
-            <div class="product-item" category="sueter">
-                <div class="card" style="width: 18rem;">
-                <img src="https://www.90sclothes.com/wp-content/uploads/2020/09/3D-Monkey-Fashion-Urban-Hoodie.jpg" class="card-img-top" alt="product-image">
-                <div class="card-body">
-                   <h5 class="card-title">{{name}}</h5>
-                   <p class="card-text">Codigo: {{code}}</p>
-                   <p class="card-text">Descripcion del producto: {{description}}</p>
-                   <p class="card-text">Precio: {{price}}$</p>
-                   <p class="card-text">Stock: {{stock}}</p>
-                   <a href="/cart/add/{{id}}" class="btn btn-primary">Agregar al carrito</a>
+            <div id="product-item" category="sueter">
+                <div id="card" style="width: 18rem;">
+                <img src="https://www.90sclothes.com/wp-content/uploads/2020/09/3D-Monkey-Fashion-Urban-Hoodie.jpg" id="card-img-top" alt="product-image">
+                <div id="card-body">
+                   <h5 id="card-title">{{name}}</h5>
+                   <p id="card-text">Codigo: {{code}}</p>
+                   <p id="card-text">Descripcion del producto: {{description}}</p>
+                   <p id="card-text">Precio: {{price}}$</p>
+                   <p id="card-text">Stock: {{stock}}</p>
+                   <a href="/cart/add/{{id}}" id="btn btn-primary">Agregar al carrito</a>
                  </div>
                 </div>
             </div>
 
-            <div class="product-item" category="camiseta">
-                <div class="card" style="width: 18rem;">
-                <img src="https://roxxbkk.com/wp-content/uploads/2020/03/vitalremains201b-944x1024.jpg" class="card-img-top" alt="product-image">
-                <div class="card-body">
-                   <h5 class="card-title">{{name}}</h5>
-                   <p class="card-text">Codigo: {{code}}</p>
-                   <p class="card-text">Descripcion del producto: {{description}}</p>
-                   <p class="card-text">Precio: {{price}}$</p>
-                   <p class="card-text">Stock: {{stock}}</p>
-                   <a href="/cart/add/{{id}}" class="btn btn-primary">Agregar al carrito</a>
+            <div id="product-item" category="camiseta">
+                <div id="card" style="width: 18rem;">
+                <img src="https://roxxbkk.com/wp-content/uploads/2020/03/vitalremains201b-944x1024.jpg" id="card-img-top" alt="product-image">
+                <div id="card-body">
+                   <h5 id="card-title">{{name}}</h5>
+                   <p id="card-text">Codigo: {{code}}</p>
+                   <p id="card-text">Descripcion del producto: {{description}}</p>
+                   <p id="card-text">Precio: {{price}}$</p>
+                   <p id="card-text">Stock: {{stock}}</p>
+                   <a href="/cart/add/{{id}}" id="btn btn-primary">Agregar al carrito</a>
                  </div>
                 </div>
             </div>      
@@ -105,9 +105,16 @@
    box-sizing: border-box; 
  }
 
-   body {
+  body {
         background-color: gray;
-        font-family:'Open Sans', sans-serif;
+    }
+    .cart-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+       
     }
   
     .navbar {
@@ -195,6 +202,8 @@
 
     }
 
+
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -205,7 +214,7 @@
 <script>
     $(document).ready(function(){
         //agregando clase active al primer enlace
-        $('.category_list .category_item[category="all"]').addClass('ct_item-active');
+        $('.category_list .category_item[category="all"]').addid('ct_item-active');
    
         //filtrando los productos
         $('.category_item').click(function(){
@@ -213,8 +222,8 @@
         console.log(catProduct);
 
         //agregado de las clases en los enlaces seleccionado
-        $('.category_item').removeClass('ct_item-active');
-        $(this).addClass('ct_item-active');
+        $('.category_item').removeid('ct_item-active');
+        $(this).addid('ct_item-active');
     
         //oculta los productos
         $('.product-item').css('transform', 'scale(0)');

@@ -3,14 +3,46 @@ const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
-artistCatalogueCtl.mostarCatalogo = async (req, res) => {
+const Product = require("../modelos/Product").Product;
+const productsCart = {
+  catalogueItems: [],
+  total: 0,
+};
+
+artistCatalogueCtl.mostrarCatalogo = async (req, res) => {
+  const productId = req.params.id;
   try {
-    const catalogues = await dataSource.getRepository(ArtistCatalogue).find();
-    res.json(catalogues);
+    const product = await dataSource
+      .getRepository(Product)
+      .findOne({ where: { id: productId } });
+    if (product) {
+      // json data
+//traer el artist id 
+      productsCart.catalogueItems.push({
+        name: product.name,
+        code: product.code,
+        price: product.price,
+        id: product.id,
+      });
+      if (productsCart.catalogueItems.length > 0) {
+        let accumulator = 0;
+        for (const item of productsCart.catalogueItems) {
+          productsCart.total = accumulator += item.price;
+        }
+      }
+      res.render("e-commerce/productCategory", productsCart);
+    } else {
+      res.json({
+        message: "no existe el producto que quiere agregar",
+      });
+    }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
+
+
+
 
 artistCatalogueCtl.crearCatalogo = async (req, res) => {
   try {

@@ -5,9 +5,6 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCatalogue = {
-  catalogueItems: [],
-};
 const availableCatalogues = {
   catalogues: [],
 };
@@ -49,16 +46,21 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
       .find();
       console.log("artista catalogo", artistCatalogue)
     if (artistCatalogue.length > 0) {
-      artistCatalogue.forEach(async(catalogue) => {
-        const artist = await dataSource.getRepository(Artist).findOne({ where: { id: catalogue.artistId } })
-      console.log("artistas base", artist)
-      availableCatalogues.catalogues.push({
-        name: artist.name,
-        id: catalogue.id,
+      for (const catalogue of artistCatalogue) {
+        const artistCatalogues = await dataSource.getRepository(Artist).find({ where: { id: catalogue.artistId } })
+      console.log("artistas base", artistCatalogues)
+      availableCatalogues.catalogueImtes.push({
+        name: product.name,
+        code: product.code,
+        price: product.price,
+        stock: product.stock,
+        id: product.id,
       });
+      console.log("Datos parciados", parsedItems)
+      availableCatalogues.catalogues = parsedItems
       res.render("e-commerce/listCatalogue", availableCatalogues);
-      });
-      
+      }
+
     } else {
       res.json({
         message: "no existe el catalogo que quiere agregar",

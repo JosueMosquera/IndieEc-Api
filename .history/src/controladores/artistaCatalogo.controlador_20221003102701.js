@@ -5,9 +5,6 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCatalogue = {
-  catalogueItems: [],
-};
 const availableCatalogues = {
   catalogues: [],
 };
@@ -50,12 +47,14 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
       console.log("artista catalogo", artistCatalogue)
     if (artistCatalogue.length > 0) {
       artistCatalogue.forEach(async(catalogue) => {
-        const artist = await dataSource.getRepository(Artist).findOne({ where: { id: catalogue.artistId } })
-      console.log("artistas base", artist)
+        const artistCatalogues = await dataSource.getRepository(Artist).find({ where: { id: catalogue.artistId } })
+      console.log("artistas base", artistCatalogues)
       availableCatalogues.catalogues.push({
-        name: artist.name,
-        id: catalogue.id,
+        name: .name,
+        id: product.id,
       });
+      console.log("Datos parciados", parsedItems)
+      availableCatalogues.catalogues = parsedItems
       res.render("e-commerce/listCatalogue", availableCatalogues);
       });
       

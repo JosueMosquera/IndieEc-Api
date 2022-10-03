@@ -1,15 +1,16 @@
 const express = require("express");
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
-const Artist = require("../modelos/Artist").Artist;
+const Artist = require("../modelos/Artist");
 const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCatalogue = {
+const availableCatalogues = {
   catalogueItems: [],
 };
-const availableCatalogues = {
-  catalogues: [],
+
+artistCatalogueCtl.renderListCatalogueView = async (req, res) => {
+  res.render("e-commerce/listCatalogue");
 };
 
 artistCatalogueCtl.mostrarCatalogo = async (req, res) => {
@@ -47,21 +48,19 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
     const artistCatalogue = await dataSource
       .getRepository(ArtistCatalogue)
       .find();
-      console.log("artista catalogo", artistCatalogue)
     if (artistCatalogue.length > 0) {
       artistCatalogue.forEach(async(catalogue) => {
-        const artist = await dataSource.getRepository(Artist).findOne({ where: { id: catalogue.artistId } })
-      console.log("artistas base", artist)
-      availableCatalogues.catalogues.push({
-        name: artist.name,
-        id: catalogue.id,
-      });
-      res.render("e-commerce/listCatalogue", availableCatalogues);
+        const artistCatalogues = await dataSource.getRepository(Artist).find({ where: { id: catalogue.artistId } })
+      const parsedItems = artistCatalogues.map(item => ({
+        name: item.name,
+      }))
+      productsCatalogue.catalogueItems = parsedItems
+      res.render("e-commerce/productCategory", productsCatalogue);
       });
       
     } else {
       res.json({
-        message: "no existe el catalogo que quiere agregar",
+        message: "no existe el producto que quiere agregar",
       });
     }
   } catch (error) {

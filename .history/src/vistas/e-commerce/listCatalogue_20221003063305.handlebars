@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/productCategory/productCategory.css">
+
+<head>
+    <title>Catalogos</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>Escoge un producto</h1>
+        <div id="store-wrapper">
+            <section id="product-list">
+                 {{#each catalogueItems}}
+                <div id="product-item" category="gorra">
+                <div id="product-container">
+                <div id="card">
+                  <img src="https://promocionmusical.es/wp-content/uploads/2018/05/crossroads-MSG-merch-stand-2-810x554.jpg" id="card-img-top" alt="product-image">
+                    <div id="card-body">
+                    <h3 id="card-title">{{name}}</h5>
+                    <p id="card-text">Codigo: {{code}}</p>
+                    <p id="card-text">Descripcion del producto: {{description}}</p>
+                    <a href="/products/{{id}}" id="btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+                   </div>
+            </div>
+            {{/each}}
+            </section>
+        </div>
+    </div>
+</body>

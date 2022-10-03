@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/productCategory/productCategory.css">
+
+<head>
+    <title>Catalogos</title>
+</head>
+
+<body>
+    <div id="cart-container">
+    <div id="card">
+        <h4 >Elige tu banda favorita</h4>
+  <ul id="list-group">
+     {{#each catalogueItems}}
+      <li id="list-group-item">{{{1x {{name}} {{id}}$}}}</li>
+       
+  {{/each}}
+  </ul>
+  <br>
+ 
+</div>
+ 
+   </div>
+</body>

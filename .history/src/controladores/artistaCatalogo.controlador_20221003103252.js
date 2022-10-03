@@ -5,8 +5,8 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCatalogue = {
-  catalogueItems: [],
+const Pro = {
+  catalogues: [],
 };
 const availableCatalogues = {
   catalogues: [],

@@ -5,9 +5,6 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCatalogue = {
-  catalogueItems: [],
-};
 const availableCatalogues = {
   catalogues: [],
 };
@@ -56,6 +53,8 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
         name: artist.name,
         id: catalogue.id,
       });
+      console.log("Datos parciados", parsedItems)
+      availableCatalogues.catalogues = parsedItems
       res.render("e-commerce/listCatalogue", availableCatalogues);
       });
       

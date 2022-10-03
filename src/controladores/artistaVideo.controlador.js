@@ -89,7 +89,7 @@ artistVideoCtl.deleteVideo = async (req, res) => {
     try {
       const artistVideoDeleted = await dataSource.getRepository(ArtistVideo).delete({id:parsedId});
   
-      res.render("Perfil/artistVideo");
+      res.render("Perfil/artistVideoCrear");
       
     } catch (error) {
       

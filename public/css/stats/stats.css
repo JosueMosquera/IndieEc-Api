@@ -33,23 +33,46 @@ body {
     cursor: pointer;
     font-size: 20px;
     transition: all .3s ease;
+    
 }
 
 #escribir{
-   margin-top: -250%;
-   margin-left: 250%;
-   width: 560px;
-   padding: 50px;
-   background-color: rgb(14, 80, 90);
+   margin-top: -152%;
+   margin-left: 200%;
+   width: 200px;
+   padding: 43px;
+   background-color: rgb(93, 113, 204);
    color: white;
    border-radius: 8px;
-
-   
+}
+#escribir2{
+    margin-top: -250%;
+    margin-left: 400%;
+    width: 200px;
+    padding: 35px;
+    background-color: rgb(91, 149, 158);
+    color: white;
+    border-radius: 8px;
+}
+#escribir3{
+    margin-top: -150%;
+    margin-left: 599%;
+    width: 200px;
+    padding: 35px;
+    background-color: rgb(136, 82, 143);
+    color: white;
+    border-radius: 8px;
 }
 
-
-
-
+#escribir4{
+    margin-top: -155%;
+    margin-left: 800%;
+    width: 300px;
+    padding: 35px;
+    background-color: rgb(136, 94, 70);
+    color: white;
+    border-radius: 8px;
+}
 
 
 #cart-container{
@@ -90,7 +113,6 @@ body {
     height: 40px;
     margin-left: 30%;
     margin-top: -8.5%;
-
 }
 
 

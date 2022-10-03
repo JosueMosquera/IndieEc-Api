@@ -16,6 +16,8 @@ const dataSource = new typeorm.DataSource({
     require("../entidades/ProductSchema"),
     require("../entidades/ArtistMusicSchema"),
     require("../entidades/ArtistVideoSchema"),
+    require("../entidades/StatsSchema"),
+
     require("../entidades/ArtistCatalogueSchema"),
     require("../entidades/RequestSchema"),
     require("../entidades/ArtistProfileSchema"),

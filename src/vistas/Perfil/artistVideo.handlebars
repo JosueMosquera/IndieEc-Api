@@ -22,6 +22,12 @@
                 <i class="bx bx-grid-alt"></i>
                 <a style="text-decoration: none;" href="/videos">Videos</a>
             </div>
+
+            <div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <a style="text-decoration: none;" href="/stats">Estadisticas</a>
+                
+            </div>
         
          <form action="/videos/update/{{id}}" method="post" enctype="multipart/form-data">
           <div id="escribir">
@@ -33,7 +39,7 @@
 
                       <tr>
                         <td><h3 id="texto1">Link:</h3></td>
-                        <td><input  class="form-control input-sm" name="link" style="width: 200%;" value="{{link}}"></td>
+                        <td><input  class="form-control input-sm" name="link" style="width: 200%;" value="{{month_listeners}}"></td>
                       </tr>
                    
                   </table>
@@ -46,8 +52,6 @@
                   <button id="guarda2" type="submit">Eliminar</button>
                 </form>
                 
-</div>
-
 </div>
 </body>
 

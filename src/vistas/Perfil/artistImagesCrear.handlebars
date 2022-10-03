@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/css/imagen/imagen.css">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crear Imagen</title>
+</head>
+
+<body>
+
+<div id="menu">
+            <div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <span>Perfil</span>
+            </div>
+
+            <div id="menu-arriba">
+                <i class="bx bx-user"></i>
+                <a style="text-decoration: none;" href="/profile">Perfiles</a>
+            </div>
+
+ <div id="menu-arriba">
+                <i class="bx bx-user"></i>
+                <a style="text-decoration: none;" href="/musics">Musica</a>
+            </div>
+
+            <div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <a style="text-decoration: none;" href="/videos">Videos</a>
+            </div>
+
+            <div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <a style="text-decoration: none;" href="/Images">Imagenes</a>
+            </div>
+
+<div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <a style="text-decoration: none;" href="/stats">Estadisticas</a>
+                
+            </div>
+
+         <form action="/Images/create" method="post" enctype="multipart/form-data">
+          <div id="escribir">
+             <table class="table table-condensed">
+                 <h2 style="margin-left: 20%;">Seccion de Imagenes</h2><br>
+                       <td><h3 id="texto1">Identificacion:</h3></td>
+                        <td><input class="form-control input-sm" name="artist_id" style="width: 200%;" value="{{artist_id}}"></td>
+
+
+                      <tr>
+                        <td><h3 id="texto1">Imagen:</h3></td>
+                        <td><input  class="form-control input-sm" name="picture" style="width: 200%;" value="{{picture}}"></td>
+                      </tr>
+                   
+                  </table>
+                  <br><br><br>
+                  <button id="guarda" type="submit">Crear</button>
+                </form>
+               
+               
+                 <br>
+               
+                
+</div>
+
+</div>
+</body>

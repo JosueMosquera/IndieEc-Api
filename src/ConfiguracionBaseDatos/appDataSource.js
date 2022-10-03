@@ -8,14 +8,22 @@ const dataSource = new typeorm.DataSource({
   database: process.env.DATABASENAME,
   password: process.env.DATABASEPASS,
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [
     require("../entidades/UserSchema"),
     require("../entidades/RoleSchema"),
     require("../entidades/ArtistSchema"),
     require("../entidades/ProductSchema"),
+    require("../entidades/ArtistMusicSchema"),
+    require("../entidades/ArtistVideoSchema"),
+    require("../entidades/StatsSchema"),
+
     require("../entidades/ArtistCatalogueSchema"),
     require("../entidades/RequestSchema"),
+    require("../entidades/ArtistProfileSchema"),
+    require("../entidades/ArtistImagesSchema"),
+    require("../entidades/InstrumentPlaySchema"),
+    require("../entidades/PeopleAssistSchema"),
   ],
 });
 dataSource.initialize();

@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Carrito de compras</title>
-    
+    <script src="https://kit.fontawesome.com/b1c2188edd.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
    <div id="cart-container">
     <div id="card">
-        <h4 >Detalles Carrito</h4>
+      <a href="/artist-catalogue/1" id="return-btn">Regresar</a>
+        <h4 > Detalles Carrito</h4>
+        
   <ul id="list-group">
      {{#each catalogueItems}}
-      <li id="list-group-item">1x {{name}} {{price}}$</li>
+      <li id="list-group-item">1x {{name}} {{price}}$ <a href="/cart/remove/{{id}}" id="remove-btn">Quitar</a></li>
        
   {{/each}}
   </ul>

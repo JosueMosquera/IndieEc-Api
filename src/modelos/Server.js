@@ -5,8 +5,16 @@ const authRouter = require("../Rutas/auth.rutas");
 const artistRouter = require("../Rutas/artist.rutas");
 const artistAuthRouter = require("../Rutas/artistAuth.rutas");
 const productsRouter = require("../Rutas/product.rutas");
+const artistMusicRouter = require("../Rutas/artistMusic.rutas");
+const artistVideoRouter = require("../Rutas/artistVideo.rutas");
+const statsRouter = require("../Rutas/stats.rutas");
+
 const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
 const cartRouter = require("../Rutas/cart.rutas");
+const artistImagesRouter = require("../Rutas/artistImages.rutas");
+const artistProfileRouter = require("../Rutas/artistProfile.rutas");
+const InstrumentPlayRouter = require("../Rutas/InstrumentPlay.rutas");
+
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
@@ -23,7 +31,13 @@ class Server {
       artistAuthPath: "/auth",
       artistCataloguePath: "/",
       productsPath: "/",
+      artistMusicPath:"/",
+      artistVideoPath:"/",
+      statsPath:"/",
       cartPath: "/",
+      artistImagesPath:"/",
+      artistProfilePath:"/",
+      instrumentPlayPath: "/"
     };
     this.conectarDb();
     this.app.use(cors());
@@ -46,8 +60,14 @@ class Server {
     this.app.use(this.paths.artistPath, artistRouter);
     this.app.use(this.paths.artistAuthPath, artistAuthRouter);
     this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter);
+    this.app.use(this.paths.artistMusicPath, artistMusicRouter);
+    this.app.use(this.paths.artistVideoPath, artistVideoRouter);
+    this.app.use(this.paths.statsPath, statsRouter);
     this.app.use(this.paths.productsPath, productsRouter);
     this.app.use(this.paths.cartPath, cartRouter);
+    this.app.use(this.paths.artistImagesPath, artistImagesRouter);
+    this.app.use(this.paths.artistProfilePath, artistProfileRouter);
+    this.app.use(this.paths.instrumentPlayPath, InstrumentPlayRouter);
   }
   listen() {
     this.app.listen(this.port);

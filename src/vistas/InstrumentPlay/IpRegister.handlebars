@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>Registro Informacion-Artistas</title>
+    <title>Encuesta</title>
 </head>
 
 <body>
@@ -27,46 +27,17 @@
     <div class="container mt-5">
         <div class="card border-secondary">
             <div class="card-body">
-                <form action="/artists" method="POST" enctype="multipart/form-data">
-<div class="mb-3">
+                <form action="/InstrumentPlays" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
                         <label for="username" class="form-label">Nombre de Usuario:</label>
-                        <input type="text" class="form-control" id="username" name="username" tabindex="1" required>
+                        <input type="text" class="form-control" id="" name="username" tabindex="1" required>
                     </div>
+                    <p> ¿Que instrumento tocas?</p> 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="text" class="form-control" id="email" name="email" tabindex="1" required>
+                        <label for="answer" class="form-label">Respuesta:</label>
+                        <input type="text" class="form-control" id="answer" name="answer" tabindex="1" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="password" name="password" tabindex="1" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="name" name="name" tabindex="1" required>
-                    </div>
-                     <div class="mb-3">
-                        <label for="last_name" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" tabindex="1" required>
-                    </div>
-                     <div class="mb-3">
-                        <label for="artist_name" class="form-label">Nombre Artistico(Grupo o Solista):</label>
-                        <input type="text" class="form-control" id="artist_name" name="artist_name" tabindex="1" required>
-                    </div>
-                     <div class="mb-3">
-                        <label for="gender_music" class="form-label">Genero De Musica Del(Grupo o Solista):</label>
-                        <input type="text" class="form-control" id="gender_music" name="gender_music" tabindex="1" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="birth_place" class="form-label">Lugar de Nacimiento(Origen Del Proyecto):</label>
-                        <input type="text" class="form-control" id="birth_place" name="birth_place" tabindex="1" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Su Descripción(Pequeña descripción de su proyecto):</label>
-                        <input type="text" class="form-control" id="description" name="description" tabindex="1" required>
-                    </div>
-
+                    
                     <button class="btn btn-primary" type="submit" tabindex="5">Guardar</button>
                     <a href="https://indieec.github.io/" class="btn btn-secondary">Cancelar</a>
                 </form>
@@ -75,7 +46,6 @@
         <div class="hero">
             <img src="/images/undraw.svg" alt="" class="img-fluid">
         </div>
-        
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
 

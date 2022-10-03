@@ -13,7 +13,7 @@
         <h4 >Detalles Carrito</h4>
   <ul id="list-group">
      {{#each catalogueItems}}
-      <li id="list-group-item">1x {{name}} {{price}}$</li>
+      <li id="list-group-item">1x {{name}} {{price}}$ <a href="/cart/remove/{{id}}" id="remove-btn">Quitar</a></li>
        
   {{/each}}
   </ul>

@@ -1,0 +1,77 @@
+body {
+    background-color: gray;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 200px;
+    align-items: center;
+    justify-content: center;
+}
+#card{
+    display: grid;
+    justify-content: center;
+    align-items: center
+}
+#card-body {
+   display: flex;
+   align-items: center;
+   width: 360px;
+   height: 350px;
+   padding: 20px;
+   background-color: rgb(14, 80, 90);
+   color: white;
+   font-size: 19px;
+
+}
+
+#img-fluid{
+    width: 350px;
+    height: 350px;
+}
+
+#hero{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#navbar {
+    background-color: rgb(14, 80, 90);
+}
+#btn-primary{
+    text-decoration: none;
+    color: white;
+    width: 190px;
+    height: 40px;
+    background-color: rgb(0, 123, 255);
+    display: inline-block;
+    border: none;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 25px;
+}
+#btn-secondary{
+    text-decoration: none;
+    color: white;
+    width: 190px;
+    height: 40px;
+    background-color: rgb(110, 110, 110);
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 25px;
+}
+@media screen and (max-width: 1000px) {
+    #container {
+        gap: 10px;
+        grid-template-columns: 1fr;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 380px) {
+        #card-body {
+            font-size: 0.9rem;
+        }
+    }
+}

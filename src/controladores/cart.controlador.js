@@ -22,6 +22,7 @@ cartCtl.addToCart = async (req, res) => {
         name: product.name,
         code: product.code,
         price: product.price,
+        stock: product.stock,
         id: product.id,
       });
       if (productsCart.catalogueItems.length > 0) {
@@ -54,10 +55,20 @@ cartCtl.finishSell = async (req, res) => {
         created_At: new Date(),
         productId: item.id,
         address,
-        paymentMethod: "efectivo-contra entrega",
+        paymentMethod: "efectivo-contra-entrega",
         userId: 1,
       });
     }
+    productsCart.catalogueItems.forEach(async (item, index) => {
+      await dataSource.getRepository(Product).update(item.id, {
+        stock:
+          item.stock -
+          productsCart.catalogueItems.filter(
+            (filteredItem) => filteredItem.id === item.id
+          ).length,
+      });
+    });
+    productsCart.catalogueItems = [];
     res.render("e-commerce/thanksForYourOrder");
   }
 };

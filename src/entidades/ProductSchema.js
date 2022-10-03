@@ -29,6 +29,9 @@ module.exports = new EntitySchema({
     stock: {
       type: "int",
     },
+    product_image: {
+      type: "varchar",
+    },
     artistCatalogueId: {
       type: "int",
     },

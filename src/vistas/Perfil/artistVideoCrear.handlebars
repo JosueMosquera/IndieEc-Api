@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/video/video.css">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Videos</title>
+</head>
+
+<body>
+
+<div id="menu">
+            <div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <span>Perfil</span>
+            </div>
+
+            <div id="menu-arriba">
+                <i class="bx bx-user"></i>
+                <a style="text-decoration: none;" href="/musics">Musica</a>
+            </div>
+            <div id="menu-arriba">
+                <i class="bx bx-grid-alt"></i>
+                <a style="text-decoration: none;" href="/videos">Videos</a>
+            </div>
+        
+         <form action="/videos/create"  method="post" enctype="multipart/form-data">
+          <div id="escribir">
+             <table class="table table-condensed">
+
+                <h2 style="margin-left: 20%;">Seccion de Videos</h2><br>
+                       <td><h3 id="texto1">IDENTIFICACION:</h3></td>
+                        <td><input class="form-control input-sm" name="artistId" style="width: 200%;" value="{{artistId}}"></td>
+
+                      <tr>
+                        <td><h3 id="texto1">Link:</h3></td>
+                        <td><input  class="form-control input-sm" name="link" style="width: 200%;" value="{{link}}"></td>
+                      </tr>
+                   
+                  </table>
+                  <br><br><br>
+                  <button id="guarda" type="submit">Crear</button>
+                </form>
+            
+                
+</div>
+
+</div>
+</body>

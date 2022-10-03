@@ -7,6 +7,8 @@ const artistAuthRouter = require("../Rutas/artistAuth.rutas");
 const productsRouter = require("../Rutas/product.rutas");
 const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
 const cartRouter = require("../Rutas/cart.rutas");
+const artistImagesRouter = require("../Rutas/artistImages.rutas");
+const artistProfileRouter = require("../Rutas/artistProfile.rutas");
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
@@ -24,6 +26,8 @@ class Server {
       artistCataloguePath: "/",
       productsPath: "/",
       cartPath: "/",
+      artistImagesPath:"/",
+      artistProfilePath:"/",
     };
     this.conectarDb();
     this.app.use(cors());
@@ -48,6 +52,8 @@ class Server {
     this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter);
     this.app.use(this.paths.productsPath, productsRouter);
     this.app.use(this.paths.cartPath, cartRouter);
+    this.app.use(this.paths.artistImagesPath, artistImagesRouter);
+    this.app.use(this.paths.artistProfilePath, artistProfileRouter);
   }
   listen() {
     this.app.listen(this.port);

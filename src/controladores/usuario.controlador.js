@@ -25,13 +25,13 @@ userCtl.createUser = async (req, res) => {
     const { username, password, email, rols } = req.body;
     dataSource.getRepository(User).create(req.body);
     bcrypt.hash(password, saltRounds, async (err, hash) => {
-      const results = await dataSource.getRepository(User).save({
+      await dataSource.getRepository(User).save({
         username,
         email,
         rols,
         password: hash,
       });
-      return res.json({ msg: "usuario creado", usuario: results });
+      return res.render("auth/login");
     });
   } catch (error) {
     console.log(error);

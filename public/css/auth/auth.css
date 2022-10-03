@@ -15,7 +15,11 @@ body {
     align-items: center
 }
 
-
+#title{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
 #card-body {
    display: flex;
    align-items: center;

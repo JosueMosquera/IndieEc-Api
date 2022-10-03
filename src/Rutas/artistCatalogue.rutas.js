@@ -5,9 +5,8 @@ const {
   borrarCatalogo,
   crearCatalogo,
   mostrarCatalogo,
-  mostrarArtistasCatalogo
+  mostrarArtistasCatalogo,
 } = require("../controladores/artistaCatalogo.controlador");
-
 
 router.get("/artist-catalogue", mostrarArtistasCatalogo);
 router.get("/artist-catalogue/:id", mostrarCatalogo);

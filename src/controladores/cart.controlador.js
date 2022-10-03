@@ -1,5 +1,3 @@
-const express = require("express");
-const router = express.Router();
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const Request = require("../modelos/Request").Request;
 const Product = require("../modelos/Product").Product;
@@ -22,6 +20,7 @@ cartCtl.addToCart = async (req, res) => {
         name: product.name,
         code: product.code,
         price: product.price,
+        stock: product.stock,
         id: product.id,
       });
       if (productsCart.catalogueItems.length > 0) {
@@ -45,6 +44,22 @@ cartCtl.pucharseConfig = async (req, res) => {
   res.render("e-commerce/paymentConfig");
 };
 
+cartCtl.removeProduct = async (req, res) => {
+  const productId = req.params.id;
+  const parsedId = parseInt(productId);
+  if (productsCart.catalogueItems.length > 0) {
+    productsCart.catalogueItems = productsCart.catalogueItems.filter(
+      (item) => item.id !== parsedId
+    );
+    const product = await dataSource
+      .getRepository(Product)
+      .findOne({ where: { id: parsedId } });
+    productsCart.total = productsCart.total - product.price;
+
+    res.render("e-commerce/cart", productsCart);
+  }
+};
+
 cartCtl.finishSell = async (req, res) => {
   const { address } = req.body;
   if (productsCart.catalogueItems.length > 0) {
@@ -54,10 +69,21 @@ cartCtl.finishSell = async (req, res) => {
         created_At: new Date(),
         productId: item.id,
         address,
-        paymentMethod: "efectivo-contra entrega",
+        paymentMethod: "efectivo-contra-entrega",
         userId: 1,
       });
     }
+    productsCart.catalogueItems.forEach(async (item, index) => {
+      await dataSource.getRepository(Product).update(item.id, {
+        stock:
+          item.stock -
+          productsCart.catalogueItems.filter(
+            (filteredItem) => filteredItem.id === item.id
+          ).length,
+      });
+    });
+    productsCart.catalogueItems = [];
+    productsCart.total = 0;
     res.render("e-commerce/thanksForYourOrder");
   }
 };

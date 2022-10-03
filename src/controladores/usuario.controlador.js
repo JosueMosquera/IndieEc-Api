@@ -16,6 +16,10 @@ userCtl.getUsers = async (req, res) => {
   }
 };
 
+userCtl.getRegister = (req, res) => {
+  res.render("auth/register");
+};
+
 userCtl.createUser = async (req, res) => {
   try {
     const { username, password, email, rols } = req.body;

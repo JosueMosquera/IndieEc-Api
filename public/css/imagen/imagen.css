@@ -1,7 +1,7 @@
 :root {
     --blanco: #E0E0E0;
-    --azul-opacidad: #69e05e;
-    --bg-menu: #01ad0f;
+    --azul-opacidad: #548850;
+    --bg-menu: #409944;
     --bg-body: #C7E1FF;
 }
 *{
@@ -33,21 +33,18 @@ body {
     cursor: pointer;
     font-size: 20px;
     transition: all .3s ease;
+    
 }
 
 #escribir{
-   margin-top: -170%;
+   margin-top: -250%;
    margin-left: 250%;
    width: 560px;
    padding: 50px;
    background-color: rgb(14, 80, 90);
    color: white;
    border-radius: 8px;
-
-   
 }
-
-
 
 
 
@@ -84,12 +81,12 @@ body {
     height: 40px;
 }
 #guarda2{
-    text-decoration: none;
-    margin-left: 2%;
-    background-color: rgb(0, 123, 255);
+    background-color: rgb(255, 0, 0);
     color: white;
-    padding: 2%;
-
+    width: 130px;
+    height: 40px;
+    margin-left: 30%;
+    margin-top: -8.5%;
 }
 
 

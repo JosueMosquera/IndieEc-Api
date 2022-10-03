@@ -12,7 +12,7 @@ const {
 router.get("/musics", findAll);
 router.get("/musics/:id", findOneMusic);
 router.post("/musics/create", createMusic);
-router.put("/musics/update", updateMusic);
-router.delete("musics/delete:id", deleteMusic);
+router.post("/musics/update/:id", updateMusic);
+router.post("/musics/delete/:id", deleteMusic);
 
 module.exports = router;

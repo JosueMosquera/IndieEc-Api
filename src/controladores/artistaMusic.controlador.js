@@ -9,8 +9,8 @@ const artistMusicCtl = {};
 artistMusicCtl.findAll = async (req, res) => {
   try {
     const musics = await dataSource.getRepository(ArtistMusic).find();
-    //res.render("Perfil/perfil", musics);
-    res.json(musics);
+    res.render("Perfil/artistMusicCrear", musics);
+
   } catch (error) {
     console.log(error);
   }
@@ -25,7 +25,7 @@ artistMusicCtl.findOneMusic = async (req, res) => {
       .getRepository(ArtistMusic)
       .findOne({ where: { id: req.params.id } });
     if (ArtistMusic) {
-      res.render("Perfil/perfil", musics);
+      res.render("Perfil/artistMusic", musics);
     } else {
       res.json({
         message: "no existe el producto que estas buscando",
@@ -41,13 +41,13 @@ artistMusicCtl.createMusic = async (req, res) => {
   try {
     const {artistId,link} =
       req.body;
-    const newMusic = dataSource.getRepository(ArtistMusic).create(req.body);
+    dataSource.getRepository(ArtistMusic).create(req.body);
     await dataSource.getRepository(ArtistMusic).save({
       artistId,
       link
       
     });
-    return res.render("artistMusic");
+    return res.render("Perfil/artistMusic");
   } catch (error) {
     console.log(error);
   }
@@ -55,7 +55,8 @@ artistMusicCtl.createMusic = async (req, res) => {
 
 artistMusicCtl.updateMusic = async (req, res) => {
   try {
-    const { artistMusicId, artistId,link } = req.body;
+    const artistMusicId = req.params.id;
+    const { artistId,link } = req.body;
     const findMusic = dataSource
       .getRepository(ArtistMusic)
       .findOneBy({ id: artistMusicId });
@@ -65,33 +66,34 @@ artistMusicCtl.updateMusic = async (req, res) => {
         {
           artistId,
           link
+          
         }
+        
       );
-      res.json(updatedMusic);
+
+      res.render("Perfil/artistMusic");
     } else {
-      console.log("no se encontro el producto por el id que ingreso");
+  
+      console.log("no se encontro el perfil");
     }
+    
   } catch (error) {
     console.log(error);
   }
+
 };
 
 artistMusicCtl.deleteMusic = async (req, res) => {
-  const { artistMusicId } = req.body;
+  const artistMusicId = req.params.id;
+  const parsedId = parseInt(artistMusicId)
   try {
-    const artistMusicDeleted = dataSource.getRepository(ArtistMusic).delete({
-      
-      where: {
-        id: artistMusicId,
-      },
-    });
-    res.json({
-      artistMusicDeleted,
-    });
+    const artistMusicDeleted = await dataSource.getRepository(ArtistMusic).delete({id:parsedId});
+
+    res.render("Perfil/artistMusic");
     
   } catch (error) {
     
-    console.log(error, "deleteArtist");
+    console.log(error, "deleteMusic");
   }
 };
 module.exports = artistMusicCtl;

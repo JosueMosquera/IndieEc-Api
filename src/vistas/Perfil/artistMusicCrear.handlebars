@@ -23,7 +23,7 @@
                 <i class="bx bx-grid-alt"></i>
                 <a style="text-decoration: none;" href="/videos">Videos</a>
             </div>
-         <form action="/musics/update/{{id}}" method="post" enctype="multipart/form-data">
+         <form action="/musics/create" method="post" enctype="multipart/form-data">
           <div id="escribir">
              <table class="table table-condensed">
                  <h2 style="margin-left: 20%;">Seccion de Musica</h2><br>
@@ -37,14 +37,12 @@
                    
                   </table>
                   <br><br><br>
-                  <button id="guarda" type="submit">Guardar</button>
+                  <button id="guarda" type="submit">Crear</button>
                 </form>
                
                
                  <br>
-                <form action="/musics/delete/{{id}}" method="post" nctype="multipart/form-data">
-                  <button id="guarda2" type="submit">Eliminar</button>
-                </form>
+               
                 
 </div>
 

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/productCategory/productCategory.css">
+
+<head>
+    <title>Catalogos</title>
+</head>
+
+<body>
+    {{#if Bands}}
+    <table>
+        <tr>
+            <th>Band Name</th>
+            <th>Date</th>
+            <th>Album Name</th>
+        </tr>
+        {{#each Bands}}
+            <tr>
+                <td>{{username}}</td>
+                <td>{{name}}</td>
+            </tr>
+        {{/each}}
+    </table>
+{{else}}
+    <h3>There are no concerts coming up.</h3>
+{{/if}}
+</table>
+</body>

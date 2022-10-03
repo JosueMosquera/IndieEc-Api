@@ -5,9 +5,6 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCatalogue = {
-  catalogueItems: [],
-};
 const availableCatalogues = {
   catalogues: [],
 };
@@ -19,19 +16,16 @@ artistCatalogueCtl.mostrarCatalogo = async (req, res) => {
       .getRepository(ArtistCatalogue)
       .findOne({ where: { id: catalogueId } });
     if (catalogue) {
-      const catalogueItems = await dataSource
-        .getRepository(Product)
-        .find({ where: { artistCatalogueId: catalogue.id } });
-      const parsedItems = catalogueItems.map((item) => ({
+      const catalogueItems = await dataSource.getRepository(Product).find({ where: { artistCatalogueId: catalogue.id } })
+      const parsedItems = catalogueItems.map(item => ({
+
         name: item.name,
         code: item.code,
         price: item.price,
         stock: item.stock,
-        description: item.description,
-        product_image: item.product_image,
         id: item.id,
-      }));
-      productsCatalogue.catalogueItems = parsedItems;
+      }))
+      productsCatalogue.catalogueItems = parsedItems
       res.render("e-commerce/productCategory", productsCatalogue);
     } else {
       res.json({
@@ -44,7 +38,6 @@ artistCatalogueCtl.mostrarCatalogo = async (req, res) => {
 };
 
 
-
 artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
   
   try {
@@ -53,13 +46,18 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
       .find();
       console.log("artista catalogo", artistCatalogue)
     if (artistCatalogue.length > 0) {
+      for (const Catalogue of object) {
+        
+      }
       artistCatalogue.forEach(async(catalogue) => {
-        const artist = await dataSource.getRepository(Artist).findOne({ where: { id: catalogue.artistId } })
-      console.log("artistas base", artist)
-      availableCatalogues.catalogues.push({
-        name: artist.name,
+        const artistCatalogues = await dataSource.getRepository(Artist).find({ where: { id: catalogue.artistId } })
+      console.log("artistas base", artistCatalogues)
+        const parsedItems = artistCatalogues.map(item => ({
+        name: item.name,
         id: catalogue.id,
-      });
+      }))
+      console.log("Datos parciados", parsedItems)
+      availableCatalogues.catalogues = parsedItems
       res.render("e-commerce/listCatalogue", availableCatalogues);
       });
       

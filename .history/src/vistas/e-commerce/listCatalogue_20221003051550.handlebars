@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/productCategory/productCategory.css">
+
+<head>
+    <title>Catalogos</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>Elige tu banda favorita</h1>
+        <div id="store-wrapper">
+            <section id="product-list">
+                 {{#each catalogueItems}}
+                <div id="product-item" category="catalogue">
+                <div id="product-container">
+                <div id="card">
+                  <img src="https://images.unsplash.com/photo-1560774358-d727658f457c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" id="card-img-top" alt="product-image">
+                    <div id="card-body">
+                    <h3 id="card-title">{{artistsId}}</h5>
+                    <p id="card-text">Codigo: {{code}}</p>
+                    <p id="card-text">Descripcion del producto: {{description}}</p>
+                    <a href="/products/{{id}}" id="btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+                   </div>
+            </div>
+            {{/each}}
+            </section>
+        </div>
+    </div>
+</body>

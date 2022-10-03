@@ -1,17 +1,37 @@
+const express = require("express");
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const ArtistProfile = require("../modelos/ArtistProfile").ArtistProfile;
-const bcrypt = require("bcrypt");
+const router = express.Router();
 const artistProfileCtl = {};
-const saltRounds = 10;
 
-artistProfileCtl.renderArtistProfileRegisterView = async (req, res) => {
-  res.render("artistProfileRegister");
+
+
+artistProfileCtl.findAll = async (req, res) => {
+  try {
+    const profile = await dataSource.getRepository(ArtistProfile).find();
+    res.render("Perfil/artistProfileCrear", profile);
+
+  } catch (error) {
+    console.log(error);
+  }
+  
 };
 
-artistProfileCtl.viewProfiles = async (req, res) => {
+
+
+artistProfileCtl.findOneProfile = async (req, res) => {
   try {
-    const profiles = await dataSource.getRepository(ArtistProfile).find();
-    res.json(profiles);
+    const profile = await dataSource
+      .getRepository(ArtistProfile)
+      .findOne({ where: { id: req.params.id } });
+    if (ArtistProfile) {
+      res.render("Perfil/artistProfile", profile);
+    } else {
+      res.json({
+        message: "no existe el perfil que estas buscando",
+      });
+    }
+
   } catch (error) {
     console.log(error);
   }
@@ -19,57 +39,62 @@ artistProfileCtl.viewProfiles = async (req, res) => {
 
 artistProfileCtl.createProfile = async (req, res) => {
   try {
-    const {
-        public_name,
-        public_description,
-        public_url_social_media,
-    } = req.body;
+    const {artist_id,public_name,public_description,public_url_social_media} =
+      req.body;
     dataSource.getRepository(ArtistProfile).create(req.body);
-    bcrypt.hash( async (err, hash) => {
-      const results = await dataSource.getRepository(ArtistProfile).save({
-        public_name,
-        public_description,
-        public_url_social_media,
-      });
-      return res.render("Perfil Creado");
+    await dataSource.getRepository(ArtistProfile).save({
+      artist_id,
+      public_name,
+      public_description,
+      public_url_social_media,
     });
+    return res.render("Perfil/artistProfileCrear");
   } catch (error) {
     console.log(error);
   }
 };
 
-artistProfileCtl.update = async (req, res) => {
+artistProfileCtl.updateProfile = async (req, res) => {
   try {
-    const {
-        public_name,
-        public_description,
-        public_url_social_media,
-    } = req.body;
-    bcrypt.hash( async (err, hash) => {
-      const results = await dataSource.getRepository(ArtistProfile).update({
-        public_name,
-        public_description,
-        public_url_social_media,
-      });
-      return res.json(results);
-    });
+    const artistProfileId = req.params.id;
+    const { artist_id,public_name,public_description,public_url_social_media } = req.body;
+    const findProfile = dataSource
+      .getRepository(ArtistProfile)
+      .findOneBy({ id: artistProfileId });
+    if (findProfile) {
+      const updatedProfile= await dataSource.getRepository(ArtistProfile).update(
+        { id: artistProfileId },
+        {
+          artist_id,
+          public_name,
+          public_description,
+          public_url_social_media
+        }
+        
+      );
+
+      res.render("Perfil/artistProfile");
+    } else {
+  
+      console.log("no se encontro el perfil");
+    }
+    
   } catch (error) {
     console.log(error);
   }
+
 };
 
-artistProfileCtl.delete = async (req, res) => {
-  const { profileId } = req.body;
+artistProfileCtl.deleteProfile = async (req, res) => {
+  const artistProfileId = req.params.id;
+  const parsedId = parseInt(artistProfileId)
   try {
-    const profileDeleted = dataSource.getRepository(ArtistProfile).delete({
-      where: {
-        id: profileId,
-      },
-    });
-    res.json({
-      profileDeleted,
-    });
+    const artistProfileDeleted = await dataSource.getRepository(ArtistProfile).delete({id:parsedId});
+
+    res.render("Perfil/artistProfileCrear");
+    
   } catch (error) {
+    
     console.log(error, "deleteProfile");
   }
 };

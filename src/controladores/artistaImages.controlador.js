@@ -1,72 +1,96 @@
+const express = require("express");
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const ArtistImages = require("../modelos/ArtistImages").ArtistImages;
-const bcrypt = require("bcrypt");
+const router = express.Router();
 const artistImagesCtl = {};
-const saltRounds = 10;
 
-artistImagesCtl.renderArtistImagesRegisterView = async (req, res) => {
-  res.render("artistsImagesRegister");
+
+
+artistImagesCtl.findAll = async (req, res) => {
+  try {
+    const images = await dataSource.getRepository(ArtistImages).find();
+    res.render("Perfil/artistImagesCrear", images);
+
+  } catch (error) {
+    console.log(error);
+  }
+  
 };
 
-artistImagesCtl.viewImages = async (req, res) => {
+
+
+artistImagesCtl.findOneImages = async (req, res) => {
   try {
-    const images = await dataSource.getRepository(images).find();
-    res.json(images);
+    const images = await dataSource
+      .getRepository(ArtistImages)
+      .findOne({ where: { id: req.params.id } });
+    if (ArtistImages) {
+      res.render("Perfil/artistImages", images);
+    } else {
+      res.json({
+        message: "no existe la imagen que estas buscando",
+      });
+    }
+
   } catch (error) {
     console.log(error);
   }
 };
 
-artistImagesCtl.createImage = async (req, res) => {
+artistImagesCtl.createImages = async (req, res) => {
   try {
-    const {
-      user,
-      picture,
-
-    } = req.body;
+    const {artist_id,picture} =
+      req.body;
     dataSource.getRepository(ArtistImages).create(req.body);
-    bcrypt.hash(async (err, hash) => {
-      const results = await dataSource.getRepository(ArtistImages).save({
-        user,
-        picture,
-      });
-      return res.render("Imagen Creada");
+    await dataSource.getRepository(ArtistImages).save({
+      artist_id,
+      picture
     });
+    return res.render("Perfil/artistImagesCrear");
   } catch (error) {
     console.log(error);
   }
 };
 
-artistImagesCtl.update = async (req, res) => {
+artistImagesCtl.updateImages = async (req, res) => {
   try {
-    const {
-        user,
-        picture,
-    } = req.body;
-    bcrypt.hash( async (err, hash) => {
-      const results = await dataSource.getRepository(ArtistImages).update({
-        user,
-        picture,
-      });
-      return res.json(results);
-    });
+    const artistImagesId = req.params.id;
+    const { artist_id,picture} = req.body;
+    const findImages = dataSource
+      .getRepository(ArtistImages)
+      .findOneBy({ id: artistImagesId });
+    if (findImages) {
+      const updatedImages= await dataSource.getRepository(ArtistImages).update(
+        { id: artistImagesId },
+        {
+          artist_id,
+          picture
+        }
+        
+      );
+
+      res.render("Perfil/artistImages");
+    } else {
+  
+      console.log("no se encontro la imagen");
+    }
+    
   } catch (error) {
     console.log(error);
   }
+
 };
 
-artistImagesCtl.delete = async (req, res) => {
-  const { imagesId } = req.body;
+artistImagesCtl.deleteImages = async (req, res) => {
+  const artistImagesId = req.params.id;
+  const parsedId = parseInt(artistImagesId)
   try {
-    const imagesDeleted = dataSource.getRepository(ArtistImages).delete({
-      where: {
-        id: imagesId,
-      },
-    });
-    res.json({
-      ImagesDeleted,
-    });
+    const artistImagesDeleted = await dataSource.getRepository(ArtistImages).delete({id:parsedId});
+
+    res.render("Perfil/artistImagesCrear");
+    
   } catch (error) {
+    
     console.log(error, "deleteImages");
   }
 };

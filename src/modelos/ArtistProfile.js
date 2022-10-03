@@ -1,5 +1,5 @@
 class ArtistProfile{
-    constructor(id,){
+    constructor(id,artist_id,public_name,public_description,public_url_social_media){
         this.id = id,
         this.artist_id=artist_id,
         this.public_name=public_name,
@@ -8,5 +8,5 @@ class ArtistProfile{
     }
 }
 module.exports={
-    ArtistProfile:ArtistProfile
-}
+    ArtistProfile:ArtistProfile,
+};

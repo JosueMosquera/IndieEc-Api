@@ -2,15 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 const {
-  update,
-  createImage,
-  renderArtistImagesRegisterView,
-  viewImages,
+  createImages,
+  deleteImages,
+  findAll,
+  findOneImages,
+  updateImages,
 } = require("../controladores/artistaImages.controlador");
 
-router.get("/artistsImages/register", renderArtistImagesRegisterView);
-router.get("/artistsImages", viewImages);
-router.post("/artistsImages", createImage);
-router.put("/artistsImages/", update);
+router.get("/Images", findAll);
+router.get("/Images/:id", findOneImages);
+router.post("/Images/create", createImages);
+router.post("/Images/update/:id", updateImages);
+router.post("/Images/delete/:id", deleteImages);
 
 module.exports = router;

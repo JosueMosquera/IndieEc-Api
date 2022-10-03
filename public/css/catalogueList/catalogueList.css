@@ -1,0 +1,39 @@
+#catalogue-title{
+    text-align: center;
+    color: white;
+}
+#catalogue-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#catalogue-item{
+    width: 400px;
+    height: 700px;
+}
+#card-img-top{
+    width: 250px;
+    height: 300px;
+    margin-left: 25px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+#store-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#card{
+    width: 300px;
+    height: 600px;
+    background-color: rgb(14, 80, 90);
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    #catalogue-list{
+        
+        grid-template-columns: 1fr ;
+    }
+}

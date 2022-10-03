@@ -47,7 +47,7 @@ artistMusicCtl.createMusic = async (req, res) => {
       link
       
     });
-    return res.render("Perfil/artistMusic");
+    return res.render("Perfil/artistMusicCrear");
   } catch (error) {
     console.log(error);
   }
@@ -89,7 +89,7 @@ artistMusicCtl.deleteMusic = async (req, res) => {
   try {
     const artistMusicDeleted = await dataSource.getRepository(ArtistMusic).delete({id:parsedId});
 
-    res.render("Perfil/artistMusic");
+    res.render("Perfil/artistMusicCrear");
     
   } catch (error) {
     

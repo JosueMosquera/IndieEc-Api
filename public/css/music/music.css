@@ -1,7 +1,7 @@
 :root {
     --blanco: #E0E0E0;
-    --azul-opacidad: #69e05e;
-    --bg-menu: #01ad0f;
+    --azul-opacidad: #548850;
+    --bg-menu: #409944;
     --bg-body: #C7E1FF;
 }
 *{
@@ -37,18 +37,14 @@ body {
 }
 
 #escribir{
-   margin-top: -170%;
+   margin-top: -250%;
    margin-left: 250%;
    width: 560px;
    padding: 50px;
    background-color: rgb(14, 80, 90);
    color: white;
    border-radius: 8px;
-
-   
 }
-
-
 
 
 

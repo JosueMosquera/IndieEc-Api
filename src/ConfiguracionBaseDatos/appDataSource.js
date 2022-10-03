@@ -8,7 +8,7 @@ const dataSource = new typeorm.DataSource({
   database: process.env.DATABASENAME,
   password: process.env.DATABASEPASS,
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [
     require("../entidades/UserSchema"),
     require("../entidades/RoleSchema"),
@@ -20,6 +20,8 @@ const dataSource = new typeorm.DataSource({
 
     require("../entidades/ArtistCatalogueSchema"),
     require("../entidades/RequestSchema"),
+    require("../entidades/ArtistProfileSchema"),
+    require("../entidades/ArtistImagesSchema"),
     require("../entidades/InstrumentPlaySchema"),
     require("../entidades/PeopleAssistSchema"),
   ],

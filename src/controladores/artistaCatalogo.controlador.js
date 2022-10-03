@@ -4,33 +4,28 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const router = express.Router();
 const artistCatalogueCtl = {};
 const Product = require("../modelos/Product").Product;
-const productsCart = {
+const productsCatalogue = {
   catalogueItems: [],
-  total: 0,
 };
 
 artistCatalogueCtl.mostrarCatalogo = async (req, res) => {
-  const productId = req.params.id;
+  const catalogueId = req.params.id;
   try {
-    const product = await dataSource
-      .getRepository(Product)
-      .findOne({ where: { id: productId } });
-    if (product) {
-      // json data
-//traer el artist id 
-      productsCart.catalogueItems.push({
-        name: product.name,
-        code: product.code,
-        price: product.price,
-        id: product.id,
-      });
-      if (productsCart.catalogueItems.length > 0) {
-        let accumulator = 0;
-        for (const item of productsCart.catalogueItems) {
-          productsCart.total = accumulator += item.price;
-        }
-      }
-      res.render("e-commerce/productCategory", productsCart);
+    const catalogue = await dataSource
+      .getRepository(ArtistCatalogue)
+      .findOne({ where: { id: catalogueId } });
+    if (catalogue) {
+      const catalogueItems = await dataSource.getRepository(Product).find({ where: { artistCatalogueId: catalogue.id } })
+      const parsedItems = catalogueItems.map(item => ({
+
+        name: item.name,
+        code: item.code,
+        price: item.price,
+        stock: item.stock,
+        id: item.id,
+      }))
+      productsCatalogue.catalogueItems = parsedItems
+      res.render("e-commerce/productCategory", productsCatalogue);
     } else {
       res.json({
         message: "no existe el producto que quiere agregar",

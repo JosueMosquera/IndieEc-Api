@@ -1,251 +1,30 @@
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/productCategory/productCategory.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<head>
     <title>Productos</title>
 </head>
 
 <body>
-    <nav id="navbar navbar-expand-lg navbar-dark">
-        <div id="container-fluid">
-            <img src="https://indieec.github.io/assets/logops.png" alt=""
-                style="height: 70px ; width: 70px; margin-top: 5px;">
-            <ul id="navbar-nav me-auto mb-2 mb-lg-0">
-                <li id="nav-item">
-                    <a id="nav-link active" aria-current="page" href="https://indieec.github.io/"
-                        style="font-size: 1.1rem; font-weight: 500; margin-left: 15px;">Home</a>
-            </ul>
-            <a href="">
-                <i id="bi bi-cart" style="font-size: 1.7rem; color: white; margin-right:20px;"></i>
-            </a>
-        </div>
-    </nav>
-    
-    <div id=" wrap">
+    <div id="wrap">
         <h1>Escoge un producto</h1>
         <div id="store-wrapper">
-            <div id="category_list">
-                <div id="category_item" category="all">Todos los Productos</a>
-                <div id="category_item" category="mochila">mochilas</a>
-                <div id="category_item" category="sueter">sueters</a>
-                <div id="category_item" category="camiseta">camisetas</a>  
-                <div id="category_item" category="gorra">gorras</a>         
-
-            </div>
             <section id="product-list">
+                 {{#each catalogueItems}}
                 <div id="product-item" category="gorra">
-                <div id="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1560774358-d727658f457c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" id="card-img-top" alt="product-image">
-                <div id="card-body">
-                   <h5 id="card-title">{{name}}</h5>
-                   <p id="card-text">Codigo: {{code}}</p>
-                   <p id="card-text">Descripcion del producto: {{description}}</p>
-                   <p id="card-text">Precio: {{price}}$</p>
-                   <p id="card-text">Stock: {{stock}}</p>
-                   <a href="/views/e-commerce/productCategory.handlebars" id="btn btn-primary">Agregar al carrito</a>
-                 </div>
+                <div id="product-container">
+                <div id="card">
+                  <img src="https://images.unsplash.com/photo-1560774358-d727658f457c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" id="card-img-top" alt="product-image">
+                    <div id="card-body">
+                    <h3 id="card-title">{{name}}</h5>
+                    <p id="card-text">Codigo: {{code}}</p>
+                    <p id="card-text">Descripcion del producto: {{description}}</p>
+                    <a href="/products/{{id}}" id="btn-primary">Ver detalles</a>
+                    </div>
                 </div>
+                   </div>
             </div>
-
-            <div id="product-item" category="mochila">
-                <div id="card" style="width: 18rem;">
-                <img src="https://cdnx.jumpseller.com/fatcap/image/6820630/resize/1200/1200?1601947462" id="card-img-top" alt="product-image">
-                <div id="card-body">
-                   <h5 id="card-title">{{name}}</h5>
-                   <p id="card-text">Codigo: {{code}}</p>
-                   <p id="card-text">Descripcion del producto: {{description}}</p>
-                   <p id="card-text">Precio: {{price}}$</p>
-                   <p id="card-text">Stock: {{stock}}</p>
-                   <a href="/products/{{id}}" id="btn btn-primary">ver detalles</a>
-                 </div>
-                </div>
-            </div>
-
-            <div id="product-item" category="sueter">
-                <div id="card" style="width: 18rem;">
-                <img src="https://www.90sclothes.com/wp-content/uploads/2020/09/3D-Monkey-Fashion-Urban-Hoodie.jpg" id="card-img-top" alt="product-image">
-                <div id="card-body">
-                   <h5 id="card-title">{{name}}</h5>
-                   <p id="card-text">Codigo: {{code}}</p>
-                   <p id="card-text">Descripcion del producto: {{description}}</p>
-                   <p id="card-text">Precio: {{price}}$</p>
-                   <p id="card-text">Stock: {{stock}}</p>
-                   <a href="/cart/add/{{id}}" id="btn btn-primary">Agregar al carrito</a>
-                 </div>
-                </div>
-            </div>
-
-            <div id="product-item" category="camiseta">
-                <div id="card" style="width: 18rem;">
-                <img src="https://roxxbkk.com/wp-content/uploads/2020/03/vitalremains201b-944x1024.jpg" id="card-img-top" alt="product-image">
-                <div id="card-body">
-                   <h5 id="card-title">{{name}}</h5>
-                   <p id="card-text">Codigo: {{code}}</p>
-                   <p id="card-text">Descripcion del producto: {{description}}</p>
-                   <p id="card-text">Precio: {{price}}$</p>
-                   <p id="card-text">Stock: {{stock}}</p>
-                   <a href="/cart/add/{{id}}" id="btn btn-primary">Agregar al carrito</a>
-                 </div>
-                </div>
-            </div>      
+            {{/each}}
             </section>
         </div>
     </div>
 </body>
-<style>
- *{
-   margin: 0%;
-   padding: 0%;
-   box-sizing: border-box; 
- }
-
-  body {
-        background-color: gray;
-    }
-    .cart-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100vh;
-       
-    }
-  
-    .navbar {
-        background-color: rgb(14, 80, 90);
-    }
-
-    @media screen and (max-width: 1000px) {
-               
-    }
-    .wrap{
-        max-width: 1100px;
-        width: 90%;
-        margin: auto;
-    }
-
-    .wrap > h1{
-        color: rgb(14, 100, 76);
-        font-weight: 400;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin: 15px 0px;
-    }
-
-    .wrap > h1:after{
-        content: '';
-        width: 100%;
-        height: 1px;
-        background: #000000;
-        margin: 20px 0;
-    }
-    .store-wrapper{
-        display: flex;
-    }
-
-    .category_list{
-        display: flex;
-        flex-direction: column;
-        width: 18%;
-
-    }
-
-    .category_list .category_item{
-        display: block;
-        width: 90%;
-        padding: 15px 0;
-        margin-bottom: 20px;
-        background: #05486f;
-
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-    }
-
-    .category_list .ct_item-active{
-        background: #71af3b;
-    }
-
-    /* PRODUCTOS */
-
-    .product-list{
-        width: 82%;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .product-list .product-item{
-        width: 33%;
-        margin-left: 3%;
-        margin-bottom: 25px;
-
-        transition: all .4s;
-    }
-
-    .product-list .product-item img{
-        width: 100%;
-        
-    }
-
-    .product-list .product-item a{
-        display: block;
-        width: 100%;
-        padding: 8px 0;
-        background: #05486f;
-
-    }
-
-
-
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
-<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-<script src ="js/jquery-3.2.1.js"></script>
-<script>
-    $(document).ready(function(){
-        //agregando clase active al primer enlace
-        $('.category_list .category_item[category="all"]').addid('ct_item-active');
-   
-        //filtrando los productos
-        $('.category_item').click(function(){
-        var catProduct = $(this).attr('category');
-        console.log(catProduct);
-
-        //agregado de las clases en los enlaces seleccionado
-        $('.category_item').removeid('ct_item-active');
-        $(this).addid('ct_item-active');
-    
-        //oculta los productos
-        $('.product-item').css('transform', 'scale(0)');
-        
-        function hideProduct(){
-            $('.product-item').hide();
-        } setTimeout(hideProduct, 400);
-
-        //muestra los productos
-        function showProduct(){
-            $('.product-item[category="'+catProduct+'"]').show();
-            $('.product-item[category="'+catProduct+'"]').css('transform', 'scale(1)');
-        } setTimeout(showProduct, 400);
-    });
-        
-        //mostrando todos los productos
-        $('.category_item[category="all"]').click(function(){
-            function showAll(){
-                $('.product-item').show();
-                $('.product-item').css('transform', 'scale(1)');
-            } setTimeout(showAll, 400);
-
-        });
-    });
-</script>

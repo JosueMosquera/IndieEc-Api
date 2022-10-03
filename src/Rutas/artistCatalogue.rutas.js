@@ -7,7 +7,7 @@ const {
   mostrarCatalogo,
 } = require("../controladores/artistaCatalogo.controlador");
 
-router.get("/artist-catalogue", mostrarCatalogo);
+router.get("/artist-catalogue/:id", mostrarCatalogo);
 router.get("/create-artist-catalogue", crearCatalogo);
 router.post("/delete-artist-catalogue", borrarCatalogo);
 

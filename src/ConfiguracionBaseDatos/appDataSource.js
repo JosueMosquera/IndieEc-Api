@@ -22,6 +22,8 @@ const dataSource = new typeorm.DataSource({
     require("../entidades/RequestSchema"),
     require("../entidades/ArtistProfileSchema"),
     require("../entidades/ArtistImagesSchema"),
+    require("../entidades/InstrumentPlaySchema"),
+    require("../entidades/PeopleAssistSchema"),
   ],
 });
 dataSource.initialize();

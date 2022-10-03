@@ -1,5 +1,3 @@
-const express = require("express");
-const router = express.Router();
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const Request = require("../modelos/Request").Request;
 const Product = require("../modelos/Product").Product;
@@ -46,6 +44,22 @@ cartCtl.pucharseConfig = async (req, res) => {
   res.render("e-commerce/paymentConfig");
 };
 
+cartCtl.removeProduct = async (req, res) => {
+  const productId = req.params.id;
+  const parsedId = parseInt(productId);
+  if (productsCart.catalogueItems.length > 0) {
+    productsCart.catalogueItems = productsCart.catalogueItems.filter(
+      (item) => item.id !== parsedId
+    );
+    const product = await dataSource
+      .getRepository(Product)
+      .findOne({ where: { id: parsedId } });
+    productsCart.total = productsCart.total - product.price;
+
+    res.render("e-commerce/cart", productsCart);
+  }
+};
+
 cartCtl.finishSell = async (req, res) => {
   const { address } = req.body;
   if (productsCart.catalogueItems.length > 0) {
@@ -69,6 +83,7 @@ cartCtl.finishSell = async (req, res) => {
       });
     });
     productsCart.catalogueItems = [];
+    productsCart.total = 0;
     res.render("e-commerce/thanksForYourOrder");
   }
 };

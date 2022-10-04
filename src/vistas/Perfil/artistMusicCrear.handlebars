@@ -3,55 +3,68 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Configuración de compra</title>
+    <title>Agregar Musica</title>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body>
-
+<!-- TOP MENU -->
+            
+                <span>.</span>
+          
+            
 <div id="menu">
-            <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <span>Perfil</span>
-            </div>
-
+   
             <div id="menu-arriba">
                 <i class="bx bx-user"></i>
-                <a style="text-decoration: none;" href="/musics">Musica</a>
+                <a id="col" style="text-decoration: none;" href="/profile">Perfiles</a>
+            </div>
+
+             <div id="menu-arriba">
+                <i class='bx bx-music'></i>
+                <a id="col" style="text-decoration: none;" href="/musics">Musica</a>
             </div>
 
             <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/videos">Videos</a>
+                <i class='bx bxs-videos' ></i>
+                <a id="col" style="text-decoration: none;"href="/videos">Videos</a>
             </div>
+
+            <div id="menu-arriba">
+                <i class='bx bxs-image-add' ></i>
+                <a id="col" style="text-decoration: none;" href="/Images">Imagenes</a>
+            </div>
+
 <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/stats">Estadisticas</a>
+                <i class='bx bx-stats' ></i>
+                <a id="col" style="text-decoration: none;" href="/stats">Estadisticas</a>
                 
             </div>
 
          <form action="/musics/create" method="post" enctype="multipart/form-data">
           <div id="escribir">
              <table class="table table-condensed">
-                 <h2 style="margin-left: 20%;">Seccion de Musica</h2><br>
-                       <td><h3 id="texto1">IDENTIFICACION:</h3></td>
-                        <td><input class="form-control input-sm" name="artistId" style="width: 200%;" value="{{artistId}}"></td>
-
+                 <h1 style="margin-left: 30%;margin-top:-60">Seccion de Musica</h1><br><br><br>
+                       <td><h1 id="texto1">IDENTIFICACION:</h1></td>
+                        <td><input class="form-control input-sm" name="artistId" style="width: 176%;border-radius:8px;background-color:rgb(170, 175, 175);height:30px;margin-left:-35%;font-family:cursive" value="{{artistId}}"></td>
+<br><br>
                       <tr>
-                        <td><h3 id="texto1">Link:</h3></td>
-                        <td><input  class="form-control input-sm" name="link" style="width: 200%;" value="{{link}}"></td>
+                        <td><h1 id="texto1">LINK:</h1></td>
+                        <td><input  class="form-control input-sm" name="link" style="width: 176%;border-radius:8px;background-color:rgb(170, 175, 175);height:30px;margin-left:-35%;font-family:cursive" value="{{link}}"></td>
                       </tr>
-                   
+                      
+                      
                   </table>
                   <br><br><br>
-                  <button id="guarda" type="submit">Crear</button>
+                    <button id="guarda" type="submit" >Crear</button>
+         <div id="escribir2">
+
+            </div>
+                 
+                 
                 </form>
-               
-               
-                 <br>
-               
                 
 </div>
-
-</div>
+    
 </body>
-

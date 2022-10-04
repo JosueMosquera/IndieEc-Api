@@ -1,9 +1,10 @@
 /* FONTS GOOGLE */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+
 :root {
     --blanco: #ffffff;
-    --azul-opacidad: #ffffff;
+    --azul-opacidad: #ffffff00;
     --bg-menu: #1a0f4d;
 }
 *{
@@ -16,10 +17,10 @@ body {
     background-color: rgb(0, 0, 0);
     font-family: 'Quicksand', sans-serif;
     color: var(--blanco);
-    background-image: url("/images/audi.gif");
+    background-image: url("/images/undraw.svg");
+    background-position: 100% 10%;
+    background-size: 550px 800px;
     background-repeat: no-repeat;
-    background-position: 75% 200%;
-    background-size: 700px 700px;
 }
 
 #menu{
@@ -28,30 +29,30 @@ body {
     background: var(--bg-menu);
     padding: 20px;
     border-radius: 8px;
+
 }
-#menu-arriba{
+
+#menu-arriba {
     width: 100%;
     padding: 20px 0 20px 17px;
-    
     border-radius: 8px;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
     font-size: 20px;
+    
 }
 
 #escribir{
-    margin-top: -178%;
-    margin-left: 112%;
-    width: 1010px;
-    padding: 100px;
-    height: 107%;
-    background-color: #0a0c1d83;
-    color: white;
-    border-radius: 8px;
-
-   
+   margin-top: -178%;
+   margin-left: 112%;
+   width: 1010px;
+   padding: 100px;
+   height: 107%;
+   background-color: #0a0c1d83;
+   color: white;
+   border-radius: 8px;
 }
 
 #col{
@@ -59,15 +60,6 @@ body {
    
 }
 
-#texto1{
-    margin-left: -35%;
-    width: 50%;
-}
-
-#texto2{
-    margin-left: -65%;
-    
-}
 
 
 #cart-container{
@@ -101,28 +93,15 @@ body {
     width: 130px;
     height: 40px;
     border-radius: 20px;
-    margin-left: 50%;
-    margin-top: -3%;
-
 }
 #guarda2{
     background-color: rgb(255, 0, 0);
     color: white;
     width: 130px;
     height: 40px;
-    margin-left: 10%;
-    margin-top: -4.9%;
+    margin-left: 30%;
+    margin-top: -8.5%;
     border-radius: 20px;
-}
-
-#guarda3{
-    background-color: rgb(0, 123, 255);
-    color: white;
-    width: 130px;
-    height: 40px;
-    border-radius: 20px;
-    margin-left: -11%;
-    margin-top: -3%;
 }
 
 

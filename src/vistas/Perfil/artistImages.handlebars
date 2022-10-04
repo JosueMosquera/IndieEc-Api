@@ -1,16 +1,17 @@
-<link rel="stylesheet" href="/css/video/video.css">
+<link rel="stylesheet" href="/css/imagen/imagen.css">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <title>Videos</title>
+
+    <title>Imagenes</title>
 </head>
 
 <body>
 .
 <div id="menu">
-            
+           
 
             <div id="menu-arriba">
                 <i class="bx bx-user"></i>
@@ -33,36 +34,33 @@
             </div>
             <div id="menu-arriba">
                 <i class='bx bx-stats' ></i>
-                <a id="col" style="text-decoration: none;" href="/stats">Estadisticas</a>
+                <a id="col" style="text-decoration: none;" href="/Stats">Estadisticas</a>
             </div>
 
-        
 
-         <form action="/videos/create" method="post" enctype="multipart/form-data">
+         <form action="/Images/update/{{id}}" method="post" enctype="multipart/form-data">
           <div id="escribir">
              <table class="table table-condensed">
-                 <h1 style="margin-left: 30%;margin-top:-60">Seccion de Videos</h1><br><br><br>
-                       <td><h1 id="texto1">IDENTIFICACION:</h1></td>
-                        <td><input class="form-control input-sm" name="artistId" style="width: 176%;border-radius:8px;background-color:rgb(170, 175, 175);height:30px;margin-left:-35%;font-family:cursive" value="{{artistId}}"></td>
-<br><br>
+                 <h2 style="margin-left: 20%;">Seccion de Imagenes</h2><br>
+                      <td><h3 id="texto1">Identificacion:</h3></td>
+                        <td><input class="form-control input-sm" name="artist_id" style="width: 200%;" value="{{artist_id}}"></td>
+
                       <tr>
-                        <td><h1 id="texto1">LINK:</h1></td>
-                        <td><input  class="form-control input-sm" name="link" style="width: 176%;border-radius:8px;background-color:rgb(170, 175, 175);height:30px;margin-left:-35%;font-family:cursive" value="{{link}}"></td>
+                        <td><h3 id="texto1">Imagen:</h3></td>
+                        <td><input  class="form-control input-sm" name="picture" style="width: 200%;" value="{{picture}}"></td>
                       </tr>
-                      
-                      
+                   
                   </table>
                   <br><br><br>
-                    <button id="guarda" type="submit" >Crear</button>
-         <div id="escribir2">
-
-            </div>
-                 
-                 
+                  <button id="guarda" type="submit">Guardar</button>
                 </form>
-                
-</div>
+               
+               
+                 <br>
+                <form action="/image/delete/{{id}}" method="post" nctype="multipart/form-data">
+                  <button id="guarda2" type="submit">Eliminar</button>
+                </form>
             
-                
 </div>
+      
 </body>

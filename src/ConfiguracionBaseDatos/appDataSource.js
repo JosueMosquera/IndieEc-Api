@@ -8,7 +8,7 @@ const dataSource = new typeorm.DataSource({
   database: process.env.DATABASENAME,
   password: process.env.DATABASEPASS,
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [
     require("../entidades/UserSchema"),
     require("../entidades/RoleSchema"),

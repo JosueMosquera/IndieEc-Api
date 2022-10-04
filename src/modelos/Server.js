@@ -11,7 +11,12 @@ const statsRouter = require("../Rutas/stats.rutas");
 
 const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
 const cartRouter = require("../Rutas/cart.rutas");
+<<<<<<< HEAD
 const InstrumentPlayRouter = require("../Rutas/InstrumentPlay.rutas")
+=======
+const artistImagesRouter = require("../Rutas/artistImages.rutas");
+const artistProfileRouter = require("../Rutas/artistProfile.rutas");
+>>>>>>> feature/artist-profile
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
@@ -32,7 +37,12 @@ class Server {
       artistVideoPath:"/",
       statsPath:"/",
       cartPath: "/",
+<<<<<<< HEAD
       instrumentPlayPath: "/"
+=======
+      artistImagesPath:"/",
+      artistProfilePath:"/",
+>>>>>>> feature/artist-profile
     };
     this.conectarDb();
     this.app.use(cors());
@@ -60,7 +70,12 @@ class Server {
     this.app.use(this.paths.statsPath, statsRouter);
     this.app.use(this.paths.productsPath, productsRouter);
     this.app.use(this.paths.cartPath, cartRouter);
+<<<<<<< HEAD
     this.app.use(this.paths.instrumentPlayPath, InstrumentPlayRouter);
+=======
+    this.app.use(this.paths.artistImagesPath, artistImagesRouter);
+    this.app.use(this.paths.artistProfilePath, artistProfileRouter);
+>>>>>>> feature/artist-profile
   }
   listen() {
     this.app.listen(this.port);

@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/css/requests/requests.css" />
+
+<head>
+  <title>Mis solicitudes</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="requests-wrapper">
+      <table id="customers">
+        <tr>
+          <th>Imagen</th>
+          <th>Fecha Solicitud</th>
+          <th>Estado</th>
+          <th>Producto</th>
+          <th>Codigo producto</th>
+          <th>Precio Producto</th>
+          <th>Dirección de entrega</th>
+          <th>Metodo de envio</th>
+          <th>Numero de guía</th>
+          <th>Total</th>
+        </tr>
+        {{#each myRequests}}
+          <tr id="requests-table">
+            <td>
+              <img src={{productImage}} alt="productImage" id="product-image" />
+            </td>
+            <td>{{created_At}}</td>
+            <td>{{request_status}}</td>
+            <td>{{productName}}</td>
+            <td>{{productCode}}</td>
+            <td>{{productPrice}}</td>
+            <td>{{address}}</td>
+            <td>{{ship_method}}</td>
+            <td>{{guideNumber}}</td>
+            <td>{{total}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</body>

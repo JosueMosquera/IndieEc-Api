@@ -69,6 +69,7 @@ cartCtl.finishSell = async (req, res) => {
         created_At: new Date(),
         productId: item.id,
         address,
+        request_status: "solicitado",
         paymentMethod: "efectivo-contra-entrega",
         userId: 1,
       });

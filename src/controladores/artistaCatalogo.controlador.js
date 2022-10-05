@@ -46,21 +46,14 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
   try {
     const artistCatalogue = await dataSource
       .getRepository(ArtistCatalogue)
-      .find();
+      .find({ relations: ["artist"] });
     if (artistCatalogue.length > 0) {
-      artistCatalogue.forEach(async (catalogue) => {
-        const artist = await dataSource
-          .getRepository(Artist)
-          .findOne({ where: { id: catalogue.artistId } });
-        if (availableCatalogues.catalogues.length <= 1) {
-          availableCatalogues.catalogues.push({
-            name: artist.name,
-            id: catalogue.id,
-          });
-        }
-
-        res.render("e-commerce/listCatalogue", availableCatalogues);
-      });
+      const parsedCatalogues = artistCatalogue.map((catalogue) => ({
+        name: catalogue.artist.name,
+        id: catalogue.id,
+      }));
+      availableCatalogues.catalogues = parsedCatalogues;
+      res.render("e-commerce/listCatalogue", availableCatalogues);
     } else {
       res.json({
         message: "no existe el catalogo que quiere agregar",

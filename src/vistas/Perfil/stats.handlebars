@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/stats/stats.css">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,61 +9,92 @@
 </head>
 
 <body>
+    <br>
 
-.
-<div id="menu">
-    <h1 style="margin-left: 255%; color: rgb(255, 255, 255);">Estadisticas</h1>
-           
-
-            <div id="menu-arriba">
-                <i class="bx bx-user"></i>
-                <a id="col" style="text-decoration: none;" href="/profile">Perfiles</a>
-            </div>
-
- <div id="menu-arriba">
-                <i class='bx bx-music'></i>
-                <a id="col" style="text-decoration: none;" href="/musics">Musica</a>
-            </div>
-
-            <div id="menu-arriba">
-                <i class='bx bxs-videos' ></i>
-                <a id="col" style="text-decoration: none;" href="/videos">Videos</a>
-            </div>
-
-            <div id="menu-arriba">
-                <i class='bx bxs-image-add' ></i>
-                <a id="col" style="text-decoration: none;" href="/Images">Imagenes</a>
-            </div>
-
-            <div id="menu-arriba">
-                <i class='bx bx-stats' ></i>
-                <a id="col" style="text-decoration: none;" href="/stats">Estadisticas</a>
-                
-            </div>
+    <div id="menu">
+        <h1 style="margin-left: 255%; color: rgb(255, 255, 255);">Estadisticas</h1>
 
 
+        <div id="menu-arriba">
+            <i class="bx bx-user"></i>
+            <a id="col" style="text-decoration: none;" href="/profile">Perfiles</a>
+        </div>
 
-            
-            <div id="escribir">
-                <h2 style="color: rgb(0, 0, 0);background-color:rgba(107, 182, 97, 0.445);font-family:cursive">USER-ID</h2>
-                <br>
-            <td><input  class="form-control input-sm" name="link" style="width: 110%; font-family:cursive;border-radius:8px" value="{{artistId}}"></td>
-            </div>
-            <div id="escribir2">
-                <h2 style="color: rgb(0, 0, 0);background-color:rgba(72, 137, 167, 0.315);font-family:cursive">OYENTE DEL MES</h2>
-                <br>
-            <td><input  class="form-control input-sm" name="link" style="width: 110%; font-family:cursive;border-radius:8px;" value="{{month_listeners}}"></td>
-            </div>
-            <div id="escribir3">
-                <h2 style="color: rgb(0, 0, 0);background-color:rgba(167, 72, 72, 0.315);font-family:cursive">DIA MAS SONADO</h2>
-                <br>
-            <td><input  class="form-control input-sm" name="link" style="width: 110%; font-family:cursive;border-radius:8px" value="{{day_play_songs}}"></td>
-            </div>
-            <div id="escribir4">
-                <h2 style="color: rgb(0, 0, 0);background-color:rgba(167, 161, 72, 0.315);font-family:cursive">AÑO CON MAS SEGUIDORES</h2>
-                <br>
-      
-            <td><input  class="form-control input-sm" name="link" style="width: 110%; font-family:cursive;border-radius:8px" value="{{year_followers}}"></td>
-</div>
+        <div id="menu-arriba">
+            <i class='bx bx-music'></i>
+            <a id="col" style="text-decoration: none;" href="/musics">Musica</a>
+        </div>
+
+        <div id="menu-arriba">
+            <i class='bx bxs-videos'></i>
+            <a id="col" style="text-decoration: none;" href="/videos">Videos</a>
+        </div>
+
+        <div id="menu-arriba">
+            <i class='bx bxs-image-add'></i>
+            <a id="col" style="text-decoration: none;" href="/Images">Imagenes</a>
+        </div>
+
+        <div id="menu-arriba">
+            <i class='bx bx-stats'></i>
+            <a id="col" style="text-decoration: none;" href="/stats">Estadisticas</a>
+
+        </div>
+
+
+
+        <br><br><br>
+
+
+        <div id="escribir">
+            <h2
+                style="color: rgb(0, 0, 0);font-family:cursive;margin-left:26%;margin-top:3%;width: 60%;font-size:25px;">
+                Id del Usuario: </h2>
+            <br>
+            <p
+                style="margin-top: -8%;margin-left:88%;color:rgb(0, 0, 0);font-family:cursive;width: 60%;font-size:25px">
+                {{artistId}}</p>
+        </div>
+
+        <div id="escribir5">
+        </div>
+
+        <div id="escribir2">
+            <h2
+                style="color: rgb(0, 0, 0);font-family:cursive;margin-left:26%;margin-top:4%;width: 60%;font-size:20px;">
+                Oyente mas Frecuente:</h2>
+            <br>
+            <p style="margin-top: -8%;margin-left:80%;color:rgb(0, 0, 0);;width: 60%;font-size:40px">
+                {{month_listeners}}</p>
+
+        </div>
+        
+        <div id="escribir5">
+        </div>
+
+        <div id="escribir3">
+            <h2 style="color: rgb(0, 0, 0);font-family:cursive;margin-left:26%;margin-top:3%;width: 60%;font-size:25px;">Dia Mas Escuchado: </h2>
+            <br>
+            <p style="margin-top: -8%;margin-left:80%;color:rgb(0, 0, 0);;width: 60%;font-size:40px">
+                {{day_play_songs}}</p>
+        </div>
+
+        <div id="escribir6">
+        </div>
+
+        
+        <div id="escribir4">
+            <h2
+                style="color: rgb(0, 0, 0);font-family:cursive;margin-left:1%;margin-top:3%;width: 60%;font-size:25px;">
+                Año con mas Seguidores:</h2>
+            <br>
+
+            <<p style="margin-top: -9.7%;margin-left:50%;color:rgb(0, 0, 0);;width: 60%;font-size:20px">
+                {{year_followers}}</p>
+
+        </div>
+        <div id="escribir7">
+        </div>
+
+
 </body>
-

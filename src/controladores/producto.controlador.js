@@ -53,28 +53,28 @@ productCtl.findOneProduct = async (req, res) => {
 };
 
 productCtl.createProduct = async (req, res) => {
-  const productId = req.params.id;
   try {
     const { name, code, description, price, stock, artistCatalogueId } =
       req.body;
     const fileCloudinary = req.files?.image;
     const newProduct = dataSource.getRepository(Product).create(req.body);
-    if (newProduct){
-      await dataSource.getRepository(Product).save({
-        name: name !== undefined ? name : newProduct.name,
-          code: code !== undefined ? code : newProduct.code,
-          description: description !== undefined ? description : newProduct.description,
-          price: price !== undefined ? price : newProduct.price,
-          stock: stock !== undefined ? stock : newProduct.stock,
-          artistCatalogueId: artistCatalogueId !== undefined ? artistCatalogueId : newProduct.artistCatalogueId,
-        }
+    if (newProduct) {
+      const createdProduct = await dataSource.getRepository(Product).save({
+
+        name,
+        code,
+        description,
+        price,
+        stock,
+        artistCatalogueId,
+      }
       );
       if (fileCloudinary) {
         const { secure_url } = await cloudinaryCloud.uploader.upload(
           fileCloudinary?.tempFilePath
         );
         await dataSource.getRepository(Product).update(
-          { id: productId },
+          { id: createdProduct.id },
           {
             product_image: secure_url,
           }
@@ -82,14 +82,20 @@ productCtl.createProduct = async (req, res) => {
       }
       res.render("home");
       return res.json(newProduct);
-    }else {
+    } else {
       console.log("no se encontro el producto por el id que ingreso");
     }
-    }
-     catch (error) {
+  }
+  catch (error) {
     console.log(error);
   }
 };
+
+
+productCtl.renderCreateProduct = (req, res) => {
+  res.render("e-commerce/newProduct/newProduct")
+}
+
 
 productCtl.updateProduct = async (req, res) => {
   const productId = req.params.id;

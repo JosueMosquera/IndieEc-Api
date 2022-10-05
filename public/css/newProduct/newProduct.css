@@ -1,18 +1,52 @@
-#requests-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20;
-    padding: 40;
-}
-#product-image{
-    width: 70px;
-    height: 70px;
-}
-#requests-table{
-    background-color: white;
+
+#form_register {
+	padding: 10px;
+	width: 300px;
+	margin: 0 auto;
+	color: rgb(214, 16, 16);
+	font-size: 15px;
+	background-color: rgb(74, 201, 127);
+	border-radius: 5px;
 }
 
+#input,
+textarea {
+	border: 0px;
+	outline: none;
+
+}
+
+#name {
+	border: solid 1px #999;
+	padding: 10px;
+}
+
+#code {
+	border: solid 1px #999;
+	padding: 10px;
+
+}
+
+#description {
+	border: solid 1px #999;
+	padding: 10px;
+
+}
+
+#price {
+	border: solid 1px #999;
+	padding: 10px;
+}
+
+#stock {
+	border: solid 1px #999;
+	padding: 10px;
+}
+
+#artistCatalogueId {
+	border: solid 1px #999;
+	padding: 10px;
+}
 #save-btn{
   text-decoration: none;
   color: white;
@@ -24,34 +58,9 @@
   border-radius: 25px;
   margin-top: 10px;
 }
-#delete-btn{
-  text-decoration: none;
-  color: white;
-  width: 70px;
-  height: 40px;
-  background-color: rgb(255, 0, 0);
-  padding: 10px;
-  font-weight: 500;
-  border-radius: 25px;
-  margin-top: 10px;
+
+
+#product-image{
+    width: 200px;
+    height: 200px;
 }
-#customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #customers tr:hover {background-color: #ddd;}
-  
-  #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #07535f;
-    color: white;}

@@ -3,42 +3,40 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Configuración de compra</title>
 </head>
 
 <body>
-
+.
 <div id="menu">
-            <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <span>Perfil</span>
-            </div>
+          
 
-            <div id="menu-arriba">
+           <div id="menu-arriba">
                 <i class="bx bx-user"></i>
-                <a style="text-decoration: none;" href="/profile">Perfiles</a>
+                <a id="col" style="text-decoration: none;" href="/profile">Perfiles</a>
             </div>
 
- <div id="menu-arriba">
-                <i class="bx bx-user"></i>
-                <a style="text-decoration: none;" href="/musics">Musica</a>
-            </div>
-
-            <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/videos">Videos</a>
+             <div id="menu-arriba">
+                <i class='bx bx-music'></i>
+                <a id="col" style="text-decoration: none;" href="/musics">Musica</a>
             </div>
 
             <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/Images">Imagenes</a>
+                <i class='bx bxs-videos' ></i>
+                <a id="col" style="text-decoration: none;"href="/videos">Videos</a>
             </div>
 
-<div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/stats">Estadisticas</a>
-                
+            <div id="menu-arriba">
+                <i class='bx bxs-image-add' ></i>
+                <a id="col" style="text-decoration: none;" href="/Images">Imagenes</a>
             </div>
+            <div id="menu-arriba">
+                <i class='bx bx-stats' ></i>
+                <a id="col" style="text-decoration: none;" href="/Stats">Estadisticas</a>
+            </div>
+
          <form action="/profile/update/{{id}}" method="post" enctype="multipart/form-data">
           <div id="escribir">
              <table class="table table-condensed">

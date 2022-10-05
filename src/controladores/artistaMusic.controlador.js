@@ -47,7 +47,7 @@ artistMusicCtl.createMusic = async (req, res) => {
       link
       
     });
-    return res.render("Perfil/artistMusicCrear");
+    return res.render("Perfil/artistMusic");
   } catch (error) {
     console.log(error);
   }

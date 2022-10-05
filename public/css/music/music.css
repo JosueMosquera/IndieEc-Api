@@ -1,8 +1,11 @@
+/* FONTS GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+
 :root {
-    --blanco: #E0E0E0;
-    --azul-opacidad: #548850;
-    --bg-menu: #409944;
-    --bg-body: #C7E1FF;
+    --blanco: #ffffff;
+    --azul-opacidad: #ffffff00;
+    --bg-menu: #1a0f4d;
 }
 *{
     margin: 0;
@@ -11,19 +14,25 @@
 }
 
 body {
-    background-color: gray;
+    background-color: rgb(0, 0, 0);
     font-family: 'Quicksand', sans-serif;
     color: var(--blanco);
+    background-image: url("/images/sonora.gif");
+    background-repeat: no-repeat;
+    background-position: 85% 10%;
+    background-size: 800px 800px;
 }
 
 #menu{
-    max-width: 150px;
+    max-width: 290px;
     height: 100vh;
     background: var(--bg-menu);
     padding: 20px;
-    transition: max-width .3s ease;
+    border-radius: 8px;
+
 }
-#menu-arriba{
+
+#menu-arriba {
     width: 100%;
     padding: 20px 0 20px 17px;
     border-radius: 8px;
@@ -31,22 +40,47 @@ body {
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-    font-size: 20px;
-    transition: all .3s ease;
+    font-size: 20px;   
     
 }
 
 #escribir{
-   margin-top: -250%;
-   margin-left: 250%;
-   width: 560px;
-   padding: 50px;
-   background-color: rgb(14, 80, 90);
+   margin-top: -178%;
+   margin-left: 112%;
+   width: 1010px;
+   padding: 100px;
+   height: 107%;
+   background-color: #0a0c1d83;
    color: white;
    border-radius: 8px;
 }
 
+#escribir2{
+    margin-top: -25%;
+    margin-left: 70%;
+   
+    width: 10px;
+    padding: 140px;
+    height: 60%;
+    background-color: #0a0c1d83;
+    color: white;
+    border-radius: 8px;
+}
 
+#col{
+    color: rgb(199, 195, 195);
+    
+}
+
+#texto1{
+    margin-left: -35%;
+    width: 50%;
+}
+
+#texto2{
+    margin-left: -65%;
+    
+}
 
 
 #cart-container{
@@ -79,19 +113,34 @@ body {
     color: white;
     width: 130px;
     height: 40px;
+    border-radius: 20px;
+    margin-left: 50%;
+    margin-top: -3%;
+
 }
 #guarda2{
     background-color: rgb(255, 0, 0);
     color: white;
     width: 130px;
     height: 40px;
-    margin-left: 30%;
-    margin-top: -8.5%;
+    margin-left: 10%;
+    margin-top: -4.9%;
+    border-radius: 20px;
 }
 
+#guarda3{
+    background-color: rgb(0, 123, 255);
+    color: white;
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: -11%;
+    margin-top: -3%;
+}
 
 @media screen and (max-width: 1000px) {
     
 
     
 }
+

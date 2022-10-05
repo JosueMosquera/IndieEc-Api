@@ -3,58 +3,63 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Configuración de compra</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Agregar Musica</title>
 </head>
 
 <body>
-
+.
 <div id="menu">
-            <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <span>Perfil</span>
-            </div>
+            
 
             <div id="menu-arriba">
                 <i class="bx bx-user"></i>
-                <a style="text-decoration: none;" href="/profile">Perfiles</a>
+                <a id="col" style="text-decoration: none;" href="/profile">Perfiles</a>
             </div>
 
- <div id="menu-arriba">
-                <i class="bx bx-user"></i>
-                <a style="text-decoration: none;" href="/musics">Musica</a>
-            </div>
-
-            <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/videos">Videos</a>
+             <div id="menu-arriba">
+                <i class='bx bx-music'></i>
+                <a id="col" style="text-decoration: none;" href="/musics">Musica</a>
             </div>
 
             <div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/Images">Imagenes</a>
+                <i class='bx bxs-videos' ></i>
+                <a id="col" style="text-decoration: none;"href="/videos">Videos</a>
             </div>
 
-<div id="menu-arriba">
-                <i class="bx bx-grid-alt"></i>
-                <a style="text-decoration: none;" href="/stats">Estadisticas</a>
-                
+            <div id="menu-arriba">
+                <i class='bx bxs-image-add' ></i>
+                <a id="col" style="text-decoration: none;" href="/Images">Imagenes</a>
+            </div>
+            <div id="menu-arriba">
+                <i class='bx bx-stats' ></i>
+                <a id="col" style="text-decoration: none;" href="/Stats">Estadisticas</a>
             </div>
 
          <form action="/musics/update/{{id}}" method="post" enctype="multipart/form-data">
           <div id="escribir">
              <table class="table table-condensed">
-                 <h2 style="margin-left: 20%;">Seccion de Musica</h2><br>
-                       <td><h3 id="texto1">IDENTIFICACION:</h3></td>
-                        <td><input class="form-control input-sm" name="artistId" style="width: 200%;" value="{{artistId}}"></td>
-
+                 <h1 style="margin-left: 30%;margin-top:-60">Seccion de Musica</h1><br><br><br>
+                      <br><br><br><br>
+                      <h3 style="margin-left: -11%;">Id del usuario :</h3>
+                      <p style="margin-top: -2.5%;margin-left:6%">{{artistId}}</p>
+                      <br><br>
+                      <h3 style="margin-left: -11%;">Link del video :</h3>
+                      <p style="margin-top: -2.5%;margin-left:6%">{{link}}</p>
+                      <br>
+                      <br>
                       <tr>
-                        <td><h3 id="texto1">Link:</h3></td>
-                        <td><input  class="form-control input-sm" name="link" style="width: 200%;" value="{{link}}"></td>
+                        <td><h3 id="texto2">Actualizar ID:</h3></td>
+                        <td><input  class="form-control input-sm" name="artistId" style="width: 176%;border-radius:8px;background-color:rgb(170, 175, 175);height:30px;margin-left:-26%;font-family:cursive" value="{{artistId}}"></td>
                       </tr>
-                   
+                      <tr>
+                        <td><h3 id="texto2">Actualizar Link :</h3></td>
+                        <td><input  class="form-control input-sm" name="link" style="width: 176%;border-radius:8px;background-color:rgb(170, 175, 175);height:30px;margin-left:-26%;font-family:cursive" value="{{link}}"></td>
+                      </tr>
                   </table>
                   <br><br><br>
-                  <button id="guarda" type="submit">Guardar</button>
+                  <button id="guarda3" type="submit">Guardar</button>
                 </form>
                
                
@@ -62,8 +67,13 @@
                 <form action="/musics/delete/{{id}}" method="post" nctype="multipart/form-data">
                   <button id="guarda2" type="submit">Eliminar</button>
                 </form>
+                <p style="margin-left: 55%;">
+                <iframe width="440" height="298" style="margin-top:-85%;" src="https://www.youtube.com/embed/yO-XR4qXm1k"></iframe>
+                </p>
             
 </div>
+
+
       
 </body>
 

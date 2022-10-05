@@ -125,7 +125,7 @@ requestCtl.updateRequest = async (req, res) => {
       ship_method,
       guideNumber,
     } = req.body;
-    console.log(req.body);
+
     const findRequest = await dataSource
       .getRepository(Request)
       .findOneBy({ id: requestId });

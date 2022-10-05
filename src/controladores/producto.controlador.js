@@ -77,7 +77,6 @@ productCtl.updateProduct = async (req, res) => {
     const { name, code, price, stock, artistCatalogueId, description } =
       req.body;
     const fileCloudinary = req.files?.image;
-    console.log(req.body);
     const findProduct = await dataSource
       .getRepository(Product)
       .findOneBy({ id: productId });

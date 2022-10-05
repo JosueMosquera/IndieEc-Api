@@ -29,6 +29,15 @@
     color: white;
     text-align: center;
 }
+#logo-home{
+    width: 300;
+    height: 300;
+}
+#home-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (max-width: 1000px) {
     

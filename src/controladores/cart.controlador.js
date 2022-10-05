@@ -61,7 +61,7 @@ cartCtl.removeProduct = async (req, res) => {
 };
 
 cartCtl.finishSell = async (req, res) => {
-  const { address } = req.body;
+  const { address, reference, paymentMethod } = req.body;
   if (productsCart.catalogueItems.length > 0) {
     for (const item of productsCart.catalogueItems) {
       await dataSource.getRepository(Request).save({
@@ -69,8 +69,10 @@ cartCtl.finishSell = async (req, res) => {
         created_At: new Date(),
         productId: item.id,
         address,
+        reference,
         request_status: "solicitado",
-        paymentMethod: "efectivo-contra-entrega",
+        ship_method: "propio",
+        paymentMethod,
         userId: 1,
       });
     }

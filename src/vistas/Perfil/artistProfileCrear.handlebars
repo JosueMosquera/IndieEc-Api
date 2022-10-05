@@ -1,18 +1,21 @@
-<link rel="stylesheet" href="/css/perfil/perfil.css">
+<link rel="stylesheet" href="/css/music/music.css">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <title>Agregar Musica</title>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Crear Perfil</title>
 </head>
 
 <body>
-.
+<!-- TOP MENU -->
+            
+                <span>.</span>
+          
+            
 <div id="menu">
-           
-
+   
             <div id="menu-arriba">
                 <i class="bx bx-user"></i>
                 <a id="col" style="text-decoration: none;" href="/profile">Perfiles</a>
@@ -32,15 +35,17 @@
                 <i class='bx bxs-image-add' ></i>
                 <a id="col" style="text-decoration: none;" href="/Images">Imagenes</a>
             </div>
-            <div id="menu-arriba">
+
+<div id="menu-arriba">
                 <i class='bx bx-stats' ></i>
-                <a id="col" style="text-decoration: none;" href="/Stats">Estadisticas</a>
+                <a id="col" style="text-decoration: none;" href="/stats">Estadisticas</a>
+                
             </div>
 
          <form action="/profile/create" method="post" enctype="multipart/form-data">
           <div id="escribir">
              <table class="table table-condensed">
-                 <h2 style="margin-left: 20%;">Seccion de Perfiles</h2><br>
+                 <h1 style="margin-left: 30%;margin-top:-60">Seccion de Perfiles</h1><br><br><br>
                        <td><h3 id="texto1">Identificacion:</h3></td>
                         <td><input class="form-control input-sm" name="artist_id" style="width: 200%;" value="{{artist_id}}"></td>
 
@@ -58,17 +63,17 @@
                         <td><h3 id="texto1">Url:</h3></td>
                         <td><input  class="form-control input-sm" name="public_url_social_media" style="width: 200%;" value="{{public_url_social_media}}"></td>
                       </tr>
-                   
+                      
                   </table>
                   <br><br><br>
-                  <button id="guarda" type="submit">Crear</button>
+                    <button id="guarda" type="submit" >Crear</button>
+         <div id="escribir2">
+
+            </div>
+                 
+                 
                 </form>
-               
-               
-                 <br>
-               
                 
 </div>
-
-</div>
+    
 </body>

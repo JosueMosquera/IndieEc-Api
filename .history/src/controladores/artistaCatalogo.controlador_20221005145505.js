@@ -77,7 +77,7 @@ artistCatalogueCtl.crearCatalogo = async (req, res) => {
     const results = await dataSource.getRepository(ArtistCatalogue).save({
       artistId: findArtist.id
     });
-    return res.render("home");
+    
   } catch (error) {
     console.log(error);
   }

@@ -65,19 +65,32 @@ artistCatalogueCtl.mostrarArtistasCatalogo = async (req, res) => {
 };
 
 artistCatalogueCtl.renderCatalogueRegisterView = async (req, res) => {
-  res.render("e-commerce/createCatalogue");
+  res.render("e-commerce/lis");
 };
 
 artistCatalogueCtl.crearCatalogo = async (req, res) => {
   try {
-    const { username } = req.body;
-    const findArtist = await dataSource.getRepository(Artist).findOneBy({username})
+    const { artistId } = req.body;
     dataSource.getRepository(ArtistCatalogue).create(req.body);
 
     const results = await dataSource.getRepository(ArtistCatalogue).save({
-      artistId: findArtist.id
+      artistId,
     });
-    return res.render("home");
+    return res.render("e-commerce/listCatalogue");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+artistCatalogueCtl.crearCatalogo = async (req, res) => {
+  try {
+    const { artistId } = req.body;
+    dataSource.getRepository(ArtistCatalogue).create(req.body);
+
+    const results = await dataSource.getRepository(ArtistCatalogue).save({
+      artistId,
+    });
+    return res.json({ msg: "catalogo creado", catalogue: results });
   } catch (error) {
     console.log(error);
   }

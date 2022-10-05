@@ -1,4 +1,5 @@
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
+const User = require("../modelos/User").User;
 const Request = require("../modelos/Request").Request;
 const Product = require("../modelos/Product").Product;
 const cartCtl = {};
@@ -61,17 +62,22 @@ cartCtl.removeProduct = async (req, res) => {
 };
 
 cartCtl.finishSell = async (req, res) => {
-  const { address } = req.body;
-  if (productsCart.catalogueItems.length > 0) {
+  const { address, reference, paymentMethod, username } = req.body;
+  const user = await dataSource
+    .getRepository(User)
+    .findOne({ where: { username } });
+  if (productsCart.catalogueItems.length > 0 && user) {
     for (const item of productsCart.catalogueItems) {
       await dataSource.getRepository(Request).save({
         total: item.price,
         created_At: new Date(),
         productId: item.id,
         address,
+        reference,
         request_status: "solicitado",
-        paymentMethod: "efectivo-contra-entrega",
-        userId: 1,
+        ship_method: "propio",
+        paymentMethod,
+        userId: user.id,
       });
     }
     productsCart.catalogueItems.forEach(async (item, index) => {

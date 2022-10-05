@@ -9,6 +9,6 @@ const {
 
 router.get("/show-login", showLogin);
 router.post("/login", loggin);
-router.post("/logout", logOut);
+router.get("/logout", logOut);
 
 module.exports = router;

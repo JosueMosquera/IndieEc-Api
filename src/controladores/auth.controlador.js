@@ -6,6 +6,7 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const authCtl = {};
 const availableCatalogues = {
   catalogues: [],
+  userId: 0,
 };
 authCtl.showLogin = (req, res) => {
   res.render("auth/login");
@@ -30,6 +31,7 @@ authCtl.loggin = async (req, res) => {
           id: catalogue.id,
         }));
         availableCatalogues.catalogues = parsedCatalogues;
+        availableCatalogues.userId = user.id;
         res.render("e-commerce/listCatalogue", availableCatalogues);
       } else {
         res.json({
@@ -43,8 +45,6 @@ authCtl.loggin = async (req, res) => {
 };
 //TODO: funcionalidad en la vista
 authCtl.logOut = async (req, res) => {
-  res.json({
-    logout: "Has cerrado Sesión",
-  });
+  res.render("auth/login");
 };
 module.exports = authCtl;

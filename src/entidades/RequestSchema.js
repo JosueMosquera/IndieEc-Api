@@ -35,6 +35,7 @@ module.exports = new EntitySchema({
     },
     guideNumber: {
       type: "varchar",
+      default: "",
     },
     productId: {
       type: "int",

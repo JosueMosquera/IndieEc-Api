@@ -20,6 +20,10 @@ userCtl.getRegister = (req, res) => {
   res.render("auth/register");
 };
 
+userCtl.renderAdminHome = (req, res) => {
+  res.render("adminHome");
+};
+
 userCtl.createUser = async (req, res) => {
   try {
     const { username, password, email, rols } = req.body;

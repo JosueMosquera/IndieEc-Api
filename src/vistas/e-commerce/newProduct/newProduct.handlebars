@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/css/newProduct/newProduct.css" />
+
+<head>
+  <title>Productos</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="form_register">
+          <form
+            action="/products"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <tr id="products-table">
+              
+              <td>
+              <td>
+                  <div id ="products-wrapper">
+            <h1><i id="far fa-cubes"></i> Registro de producto </h1>
+            <hr>            
+                <label for = "name">Nombre</label>
+                <input type ="text" name="name" id="name" placeholder="Nombre del producto">
+            <hr>
+                
+                <label for = "code">Codigo</label>
+                <input type ="text" name="code" id="code" tabindex="1" placeholder="Codigo del Producto">
+            
+            <hr>    
+                <label for = "description">Descripcion</label>
+                <input type ="text" name="description" id="description" tabindex="1" placeholder="Descripcion del Producto">
+            
+            <hr>    
+                <label for = "price">Precio</label>
+                <input type ="number" name="price" id="price" tabindex="1" placeholder="Precio del Producto $ ">
+            
+            <hr>
+                <label for = "stock">Stock</label>
+                <input type ="number" name="stock" id="stock" tabindex="1" placeholder="Stock del Producto">
+            <hr>                    
+                <label for = "artistCatalogueId">Catalogo del Artista</label>
+                <input type ="number" name="artistCatalogueId" id="artistCatalogueId" tabindex="1" placeholder="Catalogo de Artista">
+            <hr>
+            <td>
+                <input type="file" id="myFile" name="image" />
+              </td>
+               <hr>
+                <td>
+                <button id="save-btn" type="submit">Guardar</button>
+                </td>
+            </form>
+        </div>
+                </td>
+                  
+    </div>
+   
+  </div>
+</body>

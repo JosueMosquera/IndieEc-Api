@@ -1,0 +1,78 @@
+
+#form_register {
+	padding: 20px;
+	width: 300px;
+	margin: 40 auto;
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+	background-color: rgb(14, 80, 90);
+	border-radius: 15px;
+}
+
+#input, textarea {
+	border: 100px;
+	outline: none;
+}
+
+#name {
+	border: solid 1px #999;
+	padding: 15px;
+	font-size: 20px;
+	
+}
+
+#code {
+	border: solid 1px #999;
+	padding: 15px;
+	font-size: 20px;
+
+}
+
+#description {
+	border: solid 1px #999;
+	padding: 15px;
+	font-size: 20px;
+
+}
+
+#price {
+	border: solid 1px #999;
+	padding: 15px;
+	font-size: 20px;
+
+}
+
+#stock {
+	border: solid 1px #999;
+	padding: 15px;
+	font-size: 20px;
+
+}
+
+#artistCatalogueId {
+	border: solid 1px #999;
+	padding: 15px;
+	font-size: 20px;
+
+}
+
+#save-btn{
+  text-decoration: none;
+  color: white;
+  width: 120px;
+  height: 50px;
+  background-color: rgb(0, 123, 255);
+  padding: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+#myFile{
+	display: block;
+	padding: 8px;
+	margin: auto;
+	font-size: 15px;
+}
+

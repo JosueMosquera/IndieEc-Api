@@ -56,20 +56,46 @@ productCtl.createProduct = async (req, res) => {
   try {
     const { name, code, description, price, stock, artistCatalogueId } =
       req.body;
+    const fileCloudinary = req.files?.image;
     const newProduct = dataSource.getRepository(Product).create(req.body);
-    await dataSource.getRepository(Product).save({
-      name,
-      code,
-      description,
-      price,
-      stock,
-      artistCatalogueId,
-    });
-    return res.json(newProduct);
-  } catch (error) {
+    if (newProduct) {
+      const createdProduct = await dataSource.getRepository(Product).save({
+
+        name,
+        code,
+        description,
+        price,
+        stock,
+        artistCatalogueId,
+      }
+      );
+      if (fileCloudinary) {
+        const { secure_url } = await cloudinaryCloud.uploader.upload(
+          fileCloudinary?.tempFilePath
+        );
+        await dataSource.getRepository(Product).update(
+          { id: createdProduct.id },
+          {
+            product_image: secure_url,
+          }
+        );
+      }
+      res.render("home");
+      return res.json(newProduct);
+    } else {
+      console.log("no se encontro el producto por el id que ingreso");
+    }
+  }
+  catch (error) {
     console.log(error);
   }
 };
+
+
+productCtl.renderCreateProduct = (req, res) => {
+  res.render("e-commerce/newProduct/newProduct")
+}
+
 
 productCtl.updateProduct = async (req, res) => {
   const productId = req.params.id;
@@ -87,14 +113,10 @@ productCtl.updateProduct = async (req, res) => {
         {
           name: name !== undefined ? name : findProduct.name,
           code: code !== undefined ? code : findProduct.code,
-          description:
-            description !== undefined ? description : findProduct.description,
+          description: description !== undefined ? description : findProduct.description,
           price: price !== undefined ? price : findProduct.price,
           stock: stock !== undefined ? stock : findProduct.stock,
-          artistCatalogueId:
-            artistCatalogueId !== undefined
-              ? artistCatalogueId
-              : findProduct.artistCatalogueId,
+          artistCatalogueId: artistCatalogueId !== undefined ? artistCatalogueId : findProduct.artistCatalogueId,
         }
       );
       if (fileCloudinary) {

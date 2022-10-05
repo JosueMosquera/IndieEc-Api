@@ -14,7 +14,7 @@ router.get("/products", findAll);
 router.get("/products/:id", findOneProduct);
 router.post("/products", createProduct);
 router.post("/products-update/:id", updateProduct);
-router.get("products-delete/:id", deleteProduct);
+router.get("/products-delete/:id", deleteProduct);
 router.get("/create-product", renderCreateProduct);
 
 module.exports = router;

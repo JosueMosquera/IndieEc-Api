@@ -7,7 +7,8 @@
     --azul-opacidad: #ffffff00;
     --bg-menu: #1a0f4d;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,7 +24,7 @@ body {
     background-repeat: no-repeat;
 }
 
-#menu{
+#menu {
     max-width: 290px;
     height: 100vh;
     background: var(--bg-menu);
@@ -39,109 +40,160 @@ body {
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-    font-size: 20px;   
+    font-size: 20px;
 }
 
 
-#escribir{
-   margin-top: -130%;
-   margin-left: 115%;
-   background-image: url("/images/yuki.gif");
-   background-size: 200px 200px;
-   background-repeat: no-repeat;
-   width: 200px;
-   padding: 43px;
-   background-color: rgb(93, 113, 204);
-   color: white;
-   border-radius: 8px;
-}
-#escribir2{
-    margin-top: -78%;
-    margin-left: 200%;
-    background-image: url("/images/yuki.gif");
-    background-size: 200px 200px;
+#escribir {
+    margin-top: -170%;
+    margin-left: 220%;
+    height: 20%;
+    background-image: url("/images/lluvia2.gif");
+    background-size: 985px 120px;
     background-repeat: no-repeat;
-    width: 200px;
-    padding: 43px;
+    width: 730px;
+    padding: 20px;
     background-color: rgb(93, 113, 204);
     color: white;
-    border-radius: 8px;
+    border-radius: 5px;
 }
-#escribir3{
-    margin-top: -78%;
-    margin-left: 284%;
-    background-image: url("/images/yuki.gif");
-    background-size: 200px 200px;
+
+#escribir2 {
+    margin-top: 5%;
+    margin-left: 220%;
+    height: 21%;
+    background-image: url("/images/lluvia4.gif");
+    background-size: 985px 150px;
     background-repeat: no-repeat;
-    width: 200px;
-    padding: 43px;
+    width: 730px;
+    padding: 20px;
     background-color: rgb(93, 113, 204);
     color: white;
     border-radius: 8px;
 }
 
-#escribir4{
-    margin-top: -78%;
-    margin-left: 369%;
-    background-image: url("/images/yuki.gif");
-    background-size: 305px 200px;
+#escribir3 {
+    margin-top: 5%;
+    margin-left: 220%;
+    background-image: url("/images/lluvia5.gif");
+    background-size: 985px 200px;
     background-repeat: no-repeat;
-    width: 305px;
-    padding: 43px;
+    height: 21%;
+    width: 730px;
+    padding: 20px;
     background-color: rgb(93, 113, 204);
     color: white;
     border-radius: 8px;
 }
 
-#col{
+#escribir4 {
+    margin-top: 8%;
+    margin-left: 220%;
+    height: 21%;
+    background-image: url("/images/es.gif");
+    background-size: 985px 200px;
+    background-repeat: no-repeat;
+    width: 730px;
+    padding: 20px;
+    background-color: rgb(93, 113, 204);
+    color: white;
+    border-radius: 8px;
+}
+
+#escribir5 {
+    margin-top: -48%;
+    margin-left: 115%;
+    background-image: url("/images/marsh1.gif");
+    background-size: 250px 120px;
+    background-repeat: no-repeat;
+    width: 250px;
+    padding: 60px;
+    background-color: rgb(93, 113, 204);
+    color: white;
+    border-radius: 5px;
+}
+
+#escribir6 {
+    margin-top: -49%;
+    margin-left: 115%;
+    background-image: url("/images/marsh1.gif");
+    background-size: 250px 120px;
+    background-repeat: no-repeat;
+    width: 250px;
+    padding: 60px;
+    background-color: rgb(93, 113, 204);
+    color: white;
+    border-radius: 5px;
+}
+
+#escribir7 {
+    margin-top: -49%;
+    margin-left: 115%;
+    background-image: url("/images/marsh1.gif");
+    background-size: 250px 120px;
+    background-repeat: no-repeat;
+    width: 250px;
+    padding: 60px;
+    background-color: rgb(93, 113, 204);
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+#col {
     color: rgb(199, 195, 195);
-   
+
 }
 
 
-#hero{
+#hero {
     display: flex;
     justify-content: center;
     align-items: center;
-    }
+}
 
-    #img-fluid{
-        width: 350px;
-        height: 350px;
-    }
+#img-fluid {
+    width: 350px;
+    height: 350px;
+}
 
-#cart-container{
+#cart-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 80vh;
 }
-#details-container{
+
+#details-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#card-img-top{
+
+#card-img-top {
     width: 250px;
     height: 300px;
     margin-left: 25px;
     margin-top: 10px;
     border-radius: 10px;
 }
-#list-group{
+
+#list-group {
     font-size: 19px;
-   
+
 }
 
 
-#guarda{
+#guarda {
     background-color: rgb(0, 123, 255);
     color: white;
     width: 130px;
     height: 40px;
 }
-#guarda2{
+
+#guarda2 {
     background-color: rgb(255, 0, 0);
     color: white;
     width: 130px;
@@ -151,8 +203,4 @@ body {
 }
 
 
-@media screen and (max-width: 1000px) {
-    
-
-    
-}
+@media screen and (max-width: 1000px) {}

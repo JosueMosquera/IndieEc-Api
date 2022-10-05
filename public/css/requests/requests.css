@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50;
+    margin-top: 20;
     padding: 40;
 }
 #product-image{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 #requests-table{
     background-color: white;

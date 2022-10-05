@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/css/requests/requests.css" />
+
+<head>
+  <title>Productos</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="requests-wrapper">
+      <table id="customers">
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Codigo</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Artista Catalogo Id</th>
+          <th>Acciones</th>
+        </tr>
+        {{#each adminProducts}}
+          <form
+            action="/products-update/{{id}}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <tr id="requests-table">
+              <td>
+                <img
+                  src={{productImage}}
+                  alt="productImage"
+                  id="product-image"
+                />
+                <input type="file" id="myFile" name="image" />
+              </td>
+              <td>
+                {{name}}</td>
+              <td>
+                <input
+                  type="text"
+                  id="code"
+                  name="code"
+                  tabindex="1"
+                  value={{code}}
+                /></td>
+              <td>
+                {{description}}</td>
+              <td>
+
+                <input
+                  type="text"
+                  id="price"
+                  name="price"
+                  tabindex="1"
+                  value={{price}}
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  id="stock"
+                  name="stock"
+                  tabindex="1"
+                  value={{stock}}
+                /></td>
+              <td>
+                <input
+                  type="text"
+                  id="artistCatalogue"
+                  name="artistCatalogue"
+                  tabindex="1"
+                  value={{artistCatalogue}}
+                /></td>
+              <td>
+                <button id="save-btn" type="submit">Guardar</button>
+                <a id="delete-btn" href="/products-delete/{{id}}">Eliminar</a>
+              </td>
+            </tr>
+          </form>
+
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</body>

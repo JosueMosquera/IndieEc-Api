@@ -26,6 +26,7 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.17.0",
     "timeago.js": "^4.0.2",
-    "typeorm": "^0.3.4"
+    "typeorm": "^0.3.4",
+    "cloudinary": "^1.27.1"
   }
 }

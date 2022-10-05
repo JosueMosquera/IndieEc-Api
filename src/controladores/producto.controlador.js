@@ -1,14 +1,35 @@
 const express = require("express");
+const cloudinary = require("cloudinary");
+const cloudinaryCloud = cloudinary.v2;
+cloudinaryCloud.config({
+  cloud_name: "dzz16rbdb",
+  api_key: "186842746161464",
+  api_secret: "41d-ukG-vs87Pkb19nyLdZ4sH0c",
+});
 const { dataSource } = require("../ConfiguracionBaseDatos/appDataSource");
 const Product = require("../modelos/Product").Product;
-const router = express.Router();
 const productCtl = {};
-
-
+const globalProducts = {
+  adminProducts: [],
+};
 productCtl.findAll = async (req, res) => {
   try {
-    const products = await dataSource.getRepository(Product).find();
-    res.json(products);
+    const products = await dataSource
+      .getRepository(Product)
+      .find({ relations: ["artistCatalogue"] });
+    const productsToView = products.map((product) => ({
+      id: product.id,
+      name: product.name,
+      code: product.code,
+      description: product.description,
+      productImage: product.product_image,
+      price: product.price,
+      stock: product.stock,
+      artistCatalogue: product.artistCatalogue.artistId,
+    }));
+    globalProducts.adminProducts = productsToView;
+
+    res.render("e-commerce/products/productsAdmin", globalProducts);
   } catch (error) {
     console.log(error);
   }
@@ -51,23 +72,43 @@ productCtl.createProduct = async (req, res) => {
 };
 
 productCtl.updateProduct = async (req, res) => {
+  const productId = req.params.id;
   try {
-    const { productId, name, code, price, stock, artistCatalogueId } = req.body;
-    const findProduct = dataSource
+    const { name, code, price, stock, artistCatalogueId, description } =
+      req.body;
+    const fileCloudinary = req.files?.image;
+    const findProduct = await dataSource
       .getRepository(Product)
       .findOneBy({ id: productId });
+
     if (findProduct) {
-      const updatedProduct = await dataSource.getRepository(Product).update(
+      await dataSource.getRepository(Product).update(
         { id: productId },
         {
-          name,
-          code,
-          price,
-          stock,
-          artistCatalogueId,
+          name: name !== undefined ? name : findProduct.name,
+          code: code !== undefined ? code : findProduct.code,
+          description:
+            description !== undefined ? description : findProduct.description,
+          price: price !== undefined ? price : findProduct.price,
+          stock: stock !== undefined ? stock : findProduct.stock,
+          artistCatalogueId:
+            artistCatalogueId !== undefined
+              ? artistCatalogueId
+              : findProduct.artistCatalogueId,
         }
       );
-      res.json(updatedProduct);
+      if (fileCloudinary) {
+        const { secure_url } = await cloudinaryCloud.uploader.upload(
+          fileCloudinary?.tempFilePath
+        );
+        await dataSource.getRepository(Product).update(
+          { id: productId },
+          {
+            product_image: secure_url,
+          }
+        );
+      }
+      res.render("home");
     } else {
       console.log("no se encontro el producto por el id que ingreso");
     }
@@ -77,16 +118,14 @@ productCtl.updateProduct = async (req, res) => {
 };
 
 productCtl.deleteProduct = async (req, res) => {
+  const productId = req.params.id;
   try {
-    const { productId } = req.body;
     const findProduct = dataSource
       .getRepository(Product)
       .findOneBy({ id: productId });
     if (findProduct) {
-      const deletedProduct = await dataSource
-        .getRepository(Product)
-        .delete({ id: productId });
-      res.json(deletedProduct);
+      await dataSource.getRepository(Product).delete({ id: productId });
+      res.render("home");
     } else {
       console.log("no se encontro el producto por el id que ingreso");
     }

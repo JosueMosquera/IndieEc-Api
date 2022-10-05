@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="/css/requests/requests.css" />
+
+<head>
+  <title>Solicitudes</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="requests-wrapper">
+      <table id="customers">
+        <tr>
+          <th>Imagen</th>
+          <th>Fecha Solicitud</th>
+          <th>Usuario</th>
+          <th>Correo del usuario</th>
+          <th>Estado</th>
+          <th>Producto</th>
+          <th>Codigo producto</th>
+          <th>Precio Producto</th>
+          <th>Dirección de entrega</th>
+          <th>Metodo de envio</th>
+          <th>Numero de guía</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+        {{#each adminRequests}}
+          <form
+            action="/requests-update/{{id}}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <tr id="requests-table">
+              <td>
+                <img
+                  src={{productImage}}
+                  alt="productImage"
+                  id="product-image"
+                />
+              </td>
+              <td>{{created_At}}</td>
+              <td>{{userName}}</td>
+              <td>{{userEmail}}</td>
+              <td>
+
+                <input
+                  type="text"
+                  id="request_status"
+                  name="request_status"
+                  tabindex="1"
+                  value={{request_status}}
+                />
+              </td>
+              <td>{{productName}}</td>
+              <td>{{productCode}}</td>
+              <td>{{productPrice}}</td>
+              <td>
+                <label for="address" id="address">{{address}}</label>
+                <br />
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  autocomplete="off"
+                  value={{address}}
+                /></td>
+              <td>
+
+                <input
+                  type="text"
+                  id="ship_method"
+                  name="ship_method"
+                  tabindex="1"
+                  value={{ship_method}}
+                /></td>
+              <td>
+
+                <input
+                  type="text"
+                  id="guideNumber"
+                  name="guideNumber"
+                  tabindex="1"
+                  value={{guideNumber}}
+                /></td>
+              <td>{{total}}</td>
+              <td>
+                <button id="save-btn" type="submit">Guardar</button>
+                <a id="delete-btn" href="/requests-delete/{{id}}">Eliminar</a>
+              </td>
+            </tr>
+          </form>
+
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</body>

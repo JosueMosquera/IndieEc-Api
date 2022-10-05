@@ -6,6 +6,7 @@ const ArtistCatalogue = require("../modelos/ArtistCatalogue").ArtistCatalogue;
 const authCtl = {};
 const availableCatalogues = {
   catalogues: [],
+  userId: 0,
 };
 authCtl.showLogin = (req, res) => {
   res.render("auth/login");
@@ -23,21 +24,15 @@ authCtl.loggin = async (req, res) => {
     if (correctPass) {
       const artistCatalogue = await dataSource
         .getRepository(ArtistCatalogue)
-        .find();
+        .find({ relations: ["artist"] });
       if (artistCatalogue.length > 0) {
-        artistCatalogue.forEach(async (catalogue) => {
-          const artist = await dataSource
-            .getRepository(Artist)
-            .findOne({ where: { id: catalogue.artistId } });
-          if (availableCatalogues.catalogues.length <= 1) {
-            availableCatalogues.catalogues.push({
-              name: artist.name,
-              id: catalogue.id,
-            });
-          }
-
-          res.render("e-commerce/listCatalogue", availableCatalogues);
-        });
+        const parsedCatalogues = artistCatalogue.map((catalogue) => ({
+          name: catalogue.artist.name,
+          id: catalogue.id,
+        }));
+        availableCatalogues.catalogues = parsedCatalogues;
+        availableCatalogues.userId = user.id;
+        res.render("e-commerce/listCatalogue", availableCatalogues);
       } else {
         res.json({
           error: "contraseña incorrecta",
@@ -50,8 +45,6 @@ authCtl.loggin = async (req, res) => {
 };
 //TODO: funcionalidad en la vista
 authCtl.logOut = async (req, res) => {
-  res.json({
-    logout: "Has cerrado Sesión",
-  });
+  res.render("auth/login");
 };
 module.exports = authCtl;

@@ -21,6 +21,22 @@ module.exports = new EntitySchema({
     address: {
       type: "varchar",
     },
+    reference: {
+      type: "varchar",
+    },
+    request_status: {
+      type: "varchar",
+    },
+    ship_method: {
+      type: "varchar",
+    },
+    paymentMethod: {
+      type: "varchar",
+    },
+    guideNumber: {
+      type: "varchar",
+      default: "",
+    },
     productId: {
       type: "int",
     },

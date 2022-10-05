@@ -70,14 +70,27 @@ artistCatalogueCtl.renderCatalogueRegisterView = async (req, res) => {
 
 artistCatalogueCtl.crearCatalogo = async (req, res) => {
   try {
-    const { username } = req.body;
-    const findArtist = await dataSource.getRepository(Artist).findOneBy({username})
+    const { artistId } = req.body;
     dataSource.getRepository(ArtistCatalogue).create(req.body);
 
     const results = await dataSource.getRepository(ArtistCatalogue).save({
-      artistId: findArtist.id
+      artistId,
     });
-    return res.render("home");
+    return res.render("e-commerce/listCatalogue");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+artistCatalogueCtl.crearCatalogo = async (req, res) => {
+  try {
+    const { artistId } = req.body;
+    dataSource.getRepository(ArtistCatalogue).create(req.body);
+
+    const results = await dataSource.getRepository(ArtistCatalogue).save({
+      artistId,
+    });
+    return res.render("e-commerce//artist-catalogue");
   } catch (error) {
     console.log(error);
   }
